@@ -1,8 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Main from 'pages/Main';
+import About from 'pages/About';
+import NotFound from 'pages/404';
+import Header from 'components/Header';
 
-function App() {
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    );
+  }
+}
+
+/* function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -20,7 +39,6 @@ function App() {
         </a>
       </header>
     </div>
-  );
-}
+  ); */
 
 export default App;
