@@ -6,10 +6,10 @@ import About from 'pages/About';
 import NotFound from 'pages/404';
 import Header from 'components/Header';
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
@@ -40,5 +40,3 @@ class App extends React.Component {
       </header>
     </div>
   ); */
-
-export default App;

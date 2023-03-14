@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+
+    width: 100%;
+    height: 5vh;
+
+    background-color: #4cadeeb3;
+    padding: 0 5rem;
+}
+
+.header-link {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
