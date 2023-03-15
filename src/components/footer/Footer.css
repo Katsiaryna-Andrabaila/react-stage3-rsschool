@@ -9,3 +9,18 @@
     background-color: #4cadeeb3;
     padding: 0 5rem;
 }
+
+.github-link {
+    padding-left: 2%;
+
+    background: url('../../assets/github.png') no-repeat left center;
+    background-size: 10%;
+
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #320bb1;
+}
+
+.rss-link {
+    width: 5%;
+}
