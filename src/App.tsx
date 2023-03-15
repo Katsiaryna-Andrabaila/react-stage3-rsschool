@@ -4,7 +4,8 @@ import './App.css';
 import Main from 'pages/Main';
 import About from 'pages/About';
 import NotFound from 'pages/404';
-import Header from 'components/Header';
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
 
 export default class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     );
   }
