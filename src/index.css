@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(270.75deg, rgba(219, 241, 251, 0.7) 30.06%, rgba(69, 179, 252, 0.702) 100.95%, #3b3bfb 106.36%);
+  background: url('./assets/background.jpg');
+  background-size: 20%;
 
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
