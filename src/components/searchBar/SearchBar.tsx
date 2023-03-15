@@ -1,7 +1,12 @@
 import React from 'react';
+import './searchBar.css';
 
 export default class SearchBar extends React.Component {
-  render(): React.ReactNode {
-    return <input type="search"></input>;
+  render() {
+    return (
+      <div className="search-wrapper">
+        <input type="search" className="search-bar"></input>
+      </div>
+    );
   }
 }
