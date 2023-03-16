@@ -8,7 +8,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header page="main" />
         <Main />
         <Footer />
       </div>

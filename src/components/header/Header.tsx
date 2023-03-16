@@ -1,29 +1,14 @@
-import { LINK_COLORS, LINK_TITLES } from 'constants/constants';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './Header.css';
+import Nav from './Nav';
+import Title from './Title';
 
-export default class Header extends React.Component {
+export default class Header extends React.Component<{ page: string }> {
   render() {
     return (
       <header className="header">
-        <h1 className="header-title">Page</h1>
-        <nav className="header-nav">
-          <NavLink
-            className="header-link"
-            to="/"
-            style={({ isActive }) => ({ color: isActive ? LINK_COLORS.active : LINK_COLORS.base })}
-          >
-            {LINK_TITLES.home}
-          </NavLink>
-          <NavLink
-            className="header-link"
-            to="/about"
-            style={({ isActive }) => ({ color: isActive ? LINK_COLORS.active : LINK_COLORS.base })}
-          >
-            {LINK_TITLES.about}
-          </NavLink>
-        </nav>
+        <Title page={this.props.page} />
+        <Nav />
       </header>
     );
   }
