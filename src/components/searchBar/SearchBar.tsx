@@ -2,14 +2,12 @@ import React from 'react';
 import './SearchBar.css';
 
 export default class SearchBar extends React.Component<Record<string, never>, { value: string }> {
-  constructor(props: Record<string, never>) {
-    super(props);
-    this.state = { value: '' };
-  }
+  state = { value: localStorage.getItem('search-key987') || '' };
 
   componentDidMount() {
     const savedValue = localStorage.getItem('search-key987');
     savedValue && this.setState({ value: savedValue });
+    window.addEventListener('beforeunload', this.saveValue);
   }
 
   componentWillUnmount() {
@@ -18,6 +16,7 @@ export default class SearchBar extends React.Component<Record<string, never>, { 
 
   saveValue() {
     localStorage.setItem('search-key987', this.state.value);
+    window.removeEventListener('beforeunload', this.saveValue);
   }
 
   render() {
@@ -28,7 +27,7 @@ export default class SearchBar extends React.Component<Record<string, never>, { 
           className="search-bar"
           value={this.state.value}
           onChange={(event) => this.setState({ value: event.target.value })}
-        ></input>
+        />
       </div>
     );
   }

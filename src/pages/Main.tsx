@@ -6,13 +6,14 @@ import './Main.css';
 
 export default class Main extends React.Component {
   render() {
-    const cards = items.products.map((item) => {
-      return <Card key={item.id} {...item} />;
-    });
     return (
       <main className="main">
         <SearchBar />
-        <section className="cards">{cards}</section>
+        <section className="cards">
+          {items.products.map((item) => {
+            return <Card key={item.id} {...item} />;
+          })}
+        </section>
       </main>
     );
   }
