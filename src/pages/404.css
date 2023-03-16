@@ -8,4 +8,7 @@
 
 .not-found-header {
     flex: 1 0 auto;
+
+    font-size: 3rem;
+    color: blue;
 }
