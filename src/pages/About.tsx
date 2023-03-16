@@ -7,7 +7,7 @@ export default class About extends React.Component {
     return (
       <div className="App">
         <Header />
-        <h1>About Us</h1>
+        <h2>About Us</h2>
         <Footer />
       </div>
     );
