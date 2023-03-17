@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LINK_COLORS, LINK_TITLES } from 'constants/constants';
+import { LINK_COLORS, LINK_TITLES } from '../../constants/constants';
 
 export default class Nav extends React.Component {
   render() {

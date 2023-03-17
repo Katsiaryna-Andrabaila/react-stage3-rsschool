@@ -1,4 +1,4 @@
-import { CARD_INFO, SPACE, SPACE_REPEATING } from 'constants/constants';
+import { CARD_INFO, SPACE, SPACE_REPEATING } from '../../constants/constants';
 import React from 'react';
 import { TCard } from 'types/types';
 import './Card.css';
@@ -6,9 +6,9 @@ import './Card.css';
 export default class Card extends React.Component<TCard> {
   render() {
     return (
-      <div className="card">
+      <div className="card" data-testid="test-card">
         <h2>{this.props.title}</h2>
-        <img src={this.props.thumbnail} className="card-image" />
+        <img src={this.props.thumbnail} className="card-image" alt="dog photo" />
         <h4>{this.props.description}</h4>
         <p>
           {CARD_INFO.weight}
