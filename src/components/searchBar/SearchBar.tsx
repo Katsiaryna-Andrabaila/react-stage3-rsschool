@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchBar.css';
 
 export default class SearchBar extends React.Component<Record<string, never>, { value: string }> {
   state = { value: localStorage.getItem('search-key987') || '' };
