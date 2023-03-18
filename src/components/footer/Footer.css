@@ -1,27 +1,27 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
 
-    width: 100%;
-    height: 5vh;
+  width: 100%;
+  height: 5vh;
 
-    background-color: #dcdcdccf;
-    padding: 0 5rem;
+  background-color: #dcdcdccf;
+  padding: 0 5rem;
 }
 
 .github-link {
-    padding-left: 2%;
+  padding-left: 2%;
 
-    background: url('../../assets/github.png') no-repeat left center;
-    background-size: 10%;
+  background: url('../../assets/github.png') no-repeat left center;
+  background-size: 10%;
 
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #320bb1;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #320bb1;
 }
 
 .rss-link {
-    width: 5%;
+  width: 5%;
 }
