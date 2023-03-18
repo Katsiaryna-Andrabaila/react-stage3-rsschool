@@ -7,7 +7,7 @@ export default class NotFound extends React.Component {
   render() {
     return (
       <div className="not-found">
-        <Header page="" />
+        <Header page="not-found" />
         <h2 className="not-found-header">Page not found</h2>
         <Footer />
       </div>
