@@ -19,3 +19,5 @@ export const CARD_INFO = {
 
 export const SPACE = '\u00A0';
 export const SPACE_REPEATING = 5;
+
+export const GITHUB_NAME = 'katsiaryna-andrabaila';

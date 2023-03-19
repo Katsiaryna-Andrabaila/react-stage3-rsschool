@@ -1,3 +1,4 @@
+import { GITHUB_NAME } from 'constants/constants';
 import React from 'react';
 import './Footer.css';
 
@@ -11,7 +12,7 @@ export default class Footer extends React.Component {
           rel="noreferrer"
           className="github-link"
         >
-          katsiaryna-andrabaila
+          {GITHUB_NAME}
         </a>
         <p>2023</p>
         <a href="https://rs.school/react/" target="_blank" rel="noreferrer" className="rss-link">
