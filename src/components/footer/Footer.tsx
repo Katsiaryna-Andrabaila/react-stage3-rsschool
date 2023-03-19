@@ -1,4 +1,4 @@
-import { GITHUB_NAME } from 'constants/constants';
+import { GITHUB_NAME } from '../../constants/constants';
 import React from 'react';
 import './Footer.css';
 
