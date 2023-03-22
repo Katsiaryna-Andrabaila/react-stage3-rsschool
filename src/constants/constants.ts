@@ -6,6 +6,7 @@ export const LINK_COLORS = {
 export const LINK_TITLES = {
   home: 'Home',
   about: 'About us',
+  form: 'Form',
 };
 
 export const CARD_INFO = {

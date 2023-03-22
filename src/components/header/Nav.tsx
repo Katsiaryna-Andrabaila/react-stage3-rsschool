@@ -16,6 +16,9 @@ export default class Nav extends React.Component {
         <NavLink className="header-link" to="/about" style={setActive}>
           {LINK_TITLES.about}
         </NavLink>
+        <NavLink className="header-link" to="/form" style={setActive}>
+          {LINK_TITLES.form}
+        </NavLink>
       </nav>
     );
   }
