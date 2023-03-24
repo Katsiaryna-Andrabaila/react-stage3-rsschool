@@ -22,3 +22,20 @@ export const SPACE = '\u00A0';
 export const SPACE_REPEATING = 5;
 
 export const GITHUB_NAME = 'katsiaryna-andrabaila';
+
+export const FORM_PAGE_TITLES = {
+  addPuppy: 'Add your puppy!',
+  puppiesList: 'Your puppies',
+  petName: 'Pet name',
+  birthDate: 'Date of birth',
+  hairLength: 'Hair length',
+  long: 'long',
+  middle: 'middle',
+  short: 'short',
+  noHair: 'no hair',
+  gender: 'Gender',
+  male: 'Male',
+  female: 'Female',
+  picture: "Load your puppy's picture",
+  submitBtn: 'Submit',
+};

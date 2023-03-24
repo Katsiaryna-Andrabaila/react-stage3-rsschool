@@ -1,14 +1,15 @@
 import React from 'react';
+import './Form.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import './Form.css';
+import FormMain from '../../components/form/FormMain';
 
-export default class Form extends React.Component {
+export default class FormPage extends React.Component {
   render() {
     return (
-      <div className="about">
+      <div className="form">
         <Header page="form" />
-        <h2 className="about-header">Form</h2>
+        <FormMain />
         <Footer />
       </div>
     );

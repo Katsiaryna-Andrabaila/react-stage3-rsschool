@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+.form-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  flex: 1 0 auto;
+
+  width: 100%;
+  padding: 2rem 5rem;
+}
+
+.form-section {
+  width: 100%;
+
+  text-align: center;
+}
+
+.form-component,
+.form-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  border: 2px solid #dcdcdccf;
+  border-radius: 0.5rem;
+}
