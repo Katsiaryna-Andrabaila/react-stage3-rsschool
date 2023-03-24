@@ -17,7 +17,19 @@ export type TRefs = {
   nameRef: RefObject<HTMLInputElement>;
   birthRef: RefObject<HTMLInputElement>;
   hairRef: RefObject<HTMLSelectElement>;
-  genderRef: RefObject<HTMLInputElement>;
+  maleRef: RefObject<HTMLInputElement>;
+  femaleRef: RefObject<HTMLInputElement>;
   pictureRef: RefObject<HTMLInputElement>;
+  dryFeedRef: RefObject<HTMLInputElement>;
+  naturalFeedRef: RefObject<HTMLInputElement>;
   submitRef: RefObject<HTMLButtonElement>;
+};
+
+export type FormCard = {
+  name: string;
+  birth: string;
+  hair: string;
+  gender: string;
+  picture: File;
+  feed: string[];
 };

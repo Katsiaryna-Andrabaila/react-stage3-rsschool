@@ -37,5 +37,8 @@ export const FORM_PAGE_TITLES = {
   male: 'Male',
   female: 'Female',
   picture: "Load your puppy's picture",
+  feed: 'Feed',
+  dry: 'Dry feed',
+  natural: 'Natural feed',
   submitBtn: 'Submit',
 };

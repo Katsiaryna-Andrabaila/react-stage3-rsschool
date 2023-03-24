@@ -6,8 +6,11 @@ const REFS: TRefs = {
   nameRef: React.createRef(),
   birthRef: React.createRef(),
   hairRef: React.createRef(),
-  genderRef: React.createRef(),
+  maleRef: React.createRef(),
+  femaleRef: React.createRef(),
   pictureRef: React.createRef(),
+  dryFeedRef: React.createRef(),
+  naturalFeedRef: React.createRef(),
   submitRef: React.createRef(),
 };
 

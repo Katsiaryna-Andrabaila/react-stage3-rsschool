@@ -1,6 +1,6 @@
 import { CARD_INFO, SPACE, SPACE_REPEATING } from '../../constants/constants';
 import React from 'react';
-import { TCard } from 'types/types';
+import { TCard } from '../../types/types';
 import './Card.css';
 
 export default class Card extends React.Component<TCard> {
