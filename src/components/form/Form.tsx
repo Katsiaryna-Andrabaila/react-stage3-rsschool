@@ -1,33 +1,26 @@
 import { FORM_PAGE_TITLES } from 'constants/constants';
-import React, { FormEvent, RefObject } from 'react';
+import React, { FormEvent } from 'react';
+import REFS from 'utils/refs';
 
 export default class Form extends React.Component {
-  formRef: RefObject<HTMLFormElement> = React.createRef();
-  nameRef: RefObject<HTMLInputElement> = React.createRef();
-  birthRef: RefObject<HTMLInputElement> = React.createRef();
-  hairRef: RefObject<HTMLSelectElement> = React.createRef();
-  genderRef: RefObject<HTMLInputElement> = React.createRef();
-  pictureRef: RefObject<HTMLInputElement> = React.createRef();
-  submitRef: RefObject<HTMLButtonElement> = React.createRef();
-
   handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
 
   render() {
     return (
-      <form className="form-component" onSubmit={this.handleSubmit} ref={this.formRef}>
+      <form className="form-component" onSubmit={this.handleSubmit} ref={REFS.formRef}>
         <label>
           {FORM_PAGE_TITLES.petName}
-          <input type="text" ref={this.nameRef} />
+          <input type="text" ref={REFS.nameRef} />
         </label>
         <label>
           {FORM_PAGE_TITLES.birthDate}
-          <input type="date" ref={this.birthRef} />
+          <input type="date" ref={REFS.birthRef} />
         </label>
         <label>
           {FORM_PAGE_TITLES.hairLength}
-          <select ref={this.hairRef}>
+          <select ref={REFS.hairRef}>
             <option>{FORM_PAGE_TITLES.long}</option>
             <option>{FORM_PAGE_TITLES.middle}</option>
             <option>{FORM_PAGE_TITLES.short}</option>
@@ -38,19 +31,19 @@ export default class Form extends React.Component {
           {FORM_PAGE_TITLES.gender}
           <label>
             {FORM_PAGE_TITLES.male}
-            <input type="radio" name="gender" ref={this.genderRef} />
+            <input type="radio" name="gender" ref={REFS.genderRef} />
           </label>
           <label>
             {FORM_PAGE_TITLES.female}
-            <input type="radio" name="gender" ref={this.genderRef} />
+            <input type="radio" name="gender" ref={REFS.genderRef} />
           </label>
         </div>
         <label>
           {FORM_PAGE_TITLES.picture}
-          <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={this.pictureRef} />
+          <input type="file" accept=".jpg, .jpeg, .png, .gif" ref={REFS.pictureRef} />
         </label>
         <input type="checkbox" />
-        <button type="submit" ref={this.submitRef}>
+        <button type="submit" ref={REFS.submitRef}>
           {FORM_PAGE_TITLES.submitBtn}
         </button>
       </form>
