@@ -11,7 +11,6 @@ const REFS: TRefs = {
   pictureRef: React.createRef(),
   dryFeedRef: React.createRef(),
   naturalFeedRef: React.createRef(),
-  submitRef: React.createRef(),
 };
 
 export default REFS;

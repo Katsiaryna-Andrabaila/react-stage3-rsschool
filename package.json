@@ -53,7 +53,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll --coverage --collectCoverageFrom=src/**/**/*.tsx",
+    "test": "jest --watchAll --coverage --collectCoverageFrom=src/**/**/*.{ts,tsx}",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx --ext .ts",
     "format": "prettier --write ."

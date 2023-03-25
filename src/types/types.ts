@@ -22,7 +22,6 @@ export type TRefs = {
   pictureRef: RefObject<HTMLInputElement>;
   dryFeedRef: RefObject<HTMLInputElement>;
   naturalFeedRef: RefObject<HTMLInputElement>;
-  submitRef: RefObject<HTMLButtonElement>;
 };
 
 export type FormCard = {
