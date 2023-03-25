@@ -21,7 +21,7 @@ export default class FormMain extends React.Component<
           <h2>{FORM_PAGE_TITLES.addPuppy}</h2>
           <Form addFormCard={this.addFormCard} />
         </section>
-        <section className="form-section">
+        <section className="form-section form-cards-section">
           <h2>{FORM_PAGE_TITLES.puppiesList}</h2>
           <FormCards formCards={this.state.formCards} />
         </section>

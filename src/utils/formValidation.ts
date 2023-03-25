@@ -12,7 +12,7 @@ export const validateHair = (hair: string) => {
     hair === FORM_PAGE_TITLES.long ||
     hair === FORM_PAGE_TITLES.middle ||
     hair === FORM_PAGE_TITLES.short ||
-    hair === FORM_PAGE_TITLES.noHair
+    hair === FORM_PAGE_TITLES.hairless
   );
 };
 

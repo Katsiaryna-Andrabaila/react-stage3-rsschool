@@ -80,7 +80,7 @@ export default class Form extends React.Component<{ addFormCard: (card: FormCard
             <option value="long">{FORM_PAGE_TITLES.long}</option>
             <option value="middle">{FORM_PAGE_TITLES.middle}</option>
             <option value="short">{FORM_PAGE_TITLES.short}</option>
-            <option value="noHair">{FORM_PAGE_TITLES.noHair}</option>
+            <option value="hairless">{FORM_PAGE_TITLES.hairless}</option>
           </select>
         </label>
         <div>
