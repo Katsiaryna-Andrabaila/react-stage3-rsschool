@@ -51,3 +51,6 @@ export const FORM_ERRORS = {
   pictureError: 'Picture required! File extension must be .jpg, .jpeg, .png or .gif',
   feedError: 'Type of feed required!',
 };
+
+export const NEW_CARD_MESSAGE = 'New card created!';
+export const MESSAGE_DELAY = 2500;

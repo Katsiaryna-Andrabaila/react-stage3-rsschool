@@ -11,7 +11,9 @@ import {
 } from 'utils/formValidation';
 import getFeedArray from 'utils/getFeedArray';
 
-export default class Form extends React.Component<{ addFormCard: (card: FormCard) => void }> {
+export default class Form extends React.Component<{
+  addFormCard: (card: FormCard, showMessage: boolean) => void;
+}> {
   state = {
     nameError: '',
     birthError: '',
@@ -92,7 +94,7 @@ export default class Form extends React.Component<{ addFormCard: (card: FormCard
         feed: feedArray,
       };
 
-      this.props.addFormCard(newCard);
+      this.props.addFormCard(newCard, true);
       REFS.formRef.current?.reset();
       this.clearState();
     }
@@ -118,14 +120,12 @@ export default class Form extends React.Component<{ addFormCard: (card: FormCard
         <div className="input-wrapper">
           <label>
             {FORM_PAGE_TITLES.hairLength}
-            <select ref={REFS.hairRef} defaultValue="choose">
-              <option disabled value="choose">
-                Choose:{' '}
-              </option>
-              <option value="long">{FORM_PAGE_TITLES.long}</option>
-              <option value="middle">{FORM_PAGE_TITLES.middle}</option>
-              <option value="short">{FORM_PAGE_TITLES.short}</option>
-              <option value="hairless">{FORM_PAGE_TITLES.hairless}</option>
+            <select ref={REFS.hairRef}>
+              <option></option>
+              <option>{FORM_PAGE_TITLES.long}</option>
+              <option>{FORM_PAGE_TITLES.middle}</option>
+              <option>{FORM_PAGE_TITLES.short}</option>
+              <option>{FORM_PAGE_TITLES.hairless}</option>
             </select>
           </label>
           {this.state.hairError && <p className="form-error">{FORM_ERRORS.hairError}</p>}
