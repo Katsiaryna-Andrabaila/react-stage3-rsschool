@@ -16,11 +16,13 @@ export const validateHair = (hair: string) => {
   );
 };
 
-export const validateGender = (male: boolean, female: boolean) => male || female;
+export const validateGender = (male: boolean | undefined, female: boolean | undefined) =>
+  male || female;
 
 export const validatePicture = (path: File) => {
   const ext = path.name.split('.').reverse()[0];
   return ext === 'jpg' || ext === 'jpeg' || ext === 'png' || ext === 'gif';
 };
 
-export const validateFeed = (dryFeed: boolean, naturalFeed: boolean) => dryFeed || naturalFeed;
+export const validateFeed = (dryFeed: boolean | undefined, naturalFeed: boolean | undefined) =>
+  dryFeed || naturalFeed;

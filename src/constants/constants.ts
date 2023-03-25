@@ -42,3 +42,12 @@ export const FORM_PAGE_TITLES = {
   natural: 'natural feed',
   submitBtn: 'Submit',
 };
+
+export const FORM_ERRORS = {
+  nameError: 'Name required! It must contain only letters and be at least 3 characters long',
+  birthError: 'Date of birth required! It must be less than or equal to today',
+  hairError: 'Hair length required!',
+  genderError: 'Gender required!',
+  pictureError: 'Picture required! File extension must be .jpg, .jpeg, .png or .gif',
+  feedError: 'Type of feed required!',
+};
