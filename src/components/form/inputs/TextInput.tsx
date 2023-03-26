@@ -10,7 +10,7 @@ export default class TextInput extends React.Component<{
       <div className="input-wrapper">
         <label className="label">
           {FORM_PAGE_TITLES.petName}
-          <input type="text" ref={this.props.nameRef} className="input" />
+          <input type="text" ref={this.props.nameRef} className="input" data-testid="name-input" />
         </label>
         {this.props.nameError && <p className="form-error">{FORM_ERRORS.nameError}</p>}
       </div>
