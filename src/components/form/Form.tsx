@@ -86,18 +86,20 @@ export default class Form extends React.Component<{
       validatePicture(picture) &&
       feedArray.length
     ) {
-      const newCard: FormCard = {
-        name: name!,
-        birth: birth!,
-        hair: hair!,
-        gender: male ? 'male' : 'female',
-        picture: picture!,
-        feed: feedArray,
-      };
+      if (name && birth && hair && picture) {
+        const newCard: FormCard = {
+          name,
+          birth,
+          hair,
+          gender: male ? 'male' : 'female',
+          picture,
+          feed: feedArray,
+        };
 
-      this.props.addFormCard(newCard, true);
-      REFS.formRef.current?.reset();
-      this.clearState();
+        this.props.addFormCard(newCard, true);
+        REFS.formRef.current?.reset();
+        this.clearState();
+      }
     }
   };
 
