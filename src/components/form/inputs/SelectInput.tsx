@@ -8,9 +8,9 @@ export default class SelectInput extends React.Component<{
   render() {
     return (
       <div className="input-wrapper">
-        <label>
+        <label className="label">
           {FORM_PAGE_TITLES.hairLength}
-          <select ref={this.props.hairRef}>
+          <select ref={this.props.hairRef} className="input">
             <option></option>
             <option>{FORM_PAGE_TITLES.long}</option>
             <option>{FORM_PAGE_TITLES.middle}</option>

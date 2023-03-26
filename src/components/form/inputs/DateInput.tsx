@@ -8,9 +8,9 @@ export default class DateInput extends React.Component<{
   render() {
     return (
       <div className="input-wrapper">
-        <label>
+        <label className="label">
           {FORM_PAGE_TITLES.birthDate}
-          <input type="date" ref={this.props.dateRef} />
+          <input type="date" ref={this.props.dateRef} className="input" />
         </label>
         {this.props.dateError && <p className="form-error">{FORM_ERRORS.birthError}</p>}
       </div>

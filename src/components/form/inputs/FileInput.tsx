@@ -8,9 +8,9 @@ export default class FileInput extends React.Component<{
   render() {
     return (
       <div className="input-wrapper">
-        <label>
+        <label className="label">
           {FORM_PAGE_TITLES.picture}
-          <input type="file" ref={this.props.pictureRef} />
+          <input type="file" ref={this.props.pictureRef} className="file-input" />
         </label>
         {this.props.pictureError && <p className="form-error">{FORM_ERRORS.pictureError}</p>}
       </div>

@@ -9,15 +9,14 @@ export default class CheckboxInputs extends React.Component<{
   render() {
     return (
       <div className="input-wrapper">
-        <div>
-          {FORM_PAGE_TITLES.feed}
-          <label>
+        <div className="input-label">
+          <label className="label">
+            <input type="checkbox" ref={this.props.dryFeedRef} className="checkbox" />
             {FORM_PAGE_TITLES.dry}
-            <input type="checkbox" ref={this.props.dryFeedRef} />
           </label>
-          <label>
+          <label className="label">
+            <input type="checkbox" ref={this.props.naturalFeedRef} className="checkbox" />
             {FORM_PAGE_TITLES.natural}
-            <input type="checkbox" ref={this.props.naturalFeedRef} />
           </label>
         </div>
         {this.props.feedError && <p className="form-error">{FORM_ERRORS.feedError}</p>}

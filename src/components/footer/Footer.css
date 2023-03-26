@@ -19,7 +19,11 @@
 
   font-size: 1.4rem;
   font-weight: 600;
-  color: #320bb1;
+  color: #5e5d5d;
+}
+
+.github-link:hover {
+  color: #292929;
 }
 
 .rss-link {

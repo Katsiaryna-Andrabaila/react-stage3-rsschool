@@ -5,7 +5,7 @@ export default class FormCardComponent extends React.Component<FormCard> {
   render() {
     return (
       <div className="form-card">
-        <h2>{this.props.name}</h2>
+        <h2 className="form-card-header">{this.props.name}</h2>
         <img
           src={URL.createObjectURL(this.props.picture)}
           className="form-card-image"

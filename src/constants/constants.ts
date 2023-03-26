@@ -34,13 +34,13 @@ export const FORM_PAGE_TITLES = {
   short: 'short',
   hairless: 'hairless',
   gender: 'Gender',
-  male: 'Male',
-  female: 'Female',
-  picture: "Load your pet's picture",
+  male: 'male',
+  female: 'female',
+  picture: "Your pet's picture",
   feed: 'Feed',
   dry: 'dry feed',
   natural: 'natural feed',
-  submitBtn: 'Submit',
+  submitBtn: 'Add',
 };
 
 export const FORM_ERRORS = {

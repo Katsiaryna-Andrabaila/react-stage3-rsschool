@@ -118,7 +118,9 @@ export default class Form extends React.Component<{
           naturalFeedRef={REFS.naturalFeedRef}
           feedError={this.state.feedError}
         />
-        <button type="submit">{FORM_PAGE_TITLES.submitBtn}</button>
+        <button type="submit" className="button">
+          {FORM_PAGE_TITLES.submitBtn}
+        </button>
       </form>
     );
   }

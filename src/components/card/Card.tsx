@@ -7,7 +7,7 @@ export default class Card extends React.Component<TCard> {
   render() {
     return (
       <div className="card" data-testid="test-card">
-        <h2>{this.props.title}</h2>
+        <h2 className="card-header">{this.props.title}</h2>
         <img src={this.props.thumbnail} className="card-image" alt="dog photo" />
         <h4>{this.props.description}</h4>
         <p>

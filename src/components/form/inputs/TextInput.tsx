@@ -8,9 +8,9 @@ export default class TextInput extends React.Component<{
   render() {
     return (
       <div className="input-wrapper">
-        <label>
+        <label className="label">
           {FORM_PAGE_TITLES.petName}
-          <input type="text" ref={this.props.nameRef} />
+          <input type="text" ref={this.props.nameRef} className="input" />
         </label>
         {this.props.nameError && <p className="form-error">{FORM_ERRORS.nameError}</p>}
       </div>
