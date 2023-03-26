@@ -8,7 +8,7 @@ import App from './App';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('App', () => {
-  test('renders about us link', () => {
+  test('should render about us link', () => {
     render(
       <MemoryRouter>
         <App />
