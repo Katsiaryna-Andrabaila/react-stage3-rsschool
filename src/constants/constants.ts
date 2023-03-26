@@ -23,6 +23,8 @@ export const SPACE_REPEATING = 5;
 
 export const GITHUB_NAME = 'katsiaryna-andrabaila';
 
+export const YEAR_OF_CREATION = 2023;
+
 export const FORM_PAGE_TITLES = {
   addPuppy: 'Add your pet!',
   puppiesList: 'Your pets',
