@@ -4,8 +4,10 @@ import { FormCard } from '../../types/types';
 import Form from './Form';
 import FormCards from './FormCards';
 
+type State = Record<string, unknown>;
+
 export default class FormMain extends React.Component<
-  Record<string, unknown>,
+  State,
   { formCards: FormCard[]; showMessage: boolean }
 > {
   state = {
