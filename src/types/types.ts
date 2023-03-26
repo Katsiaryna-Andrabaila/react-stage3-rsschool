@@ -25,6 +25,7 @@ export type TRefs = {
 };
 
 export type FormCard = {
+  id: number;
   name: string;
   birth: string;
   hair: string;

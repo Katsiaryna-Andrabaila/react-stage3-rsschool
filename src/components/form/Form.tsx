@@ -88,6 +88,7 @@ export default class Form extends React.Component<{
     ) {
       if (name && birth && hair && picture) {
         const newCard: FormCard = {
+          id: new Date().getTime(),
           name,
           birth,
           hair,
