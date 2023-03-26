@@ -9,8 +9,8 @@ import React from 'react';
 import App from '../../App';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Given the search bar and mock value', () => {
-  test('Then after page reload I expect this mock value to be in the search bar', async () => {
+describe('App', () => {
+  test('should contain the mock value in the search bar after page reload', async () => {
     render(
       <MemoryRouter>
         <App />
