@@ -4,14 +4,14 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import FormMain from '../../components/form/FormMain';
 
-export default class FormPage extends React.Component {
-  render() {
-    return (
-      <div className="form">
-        <Header page="form" />
-        <FormMain />
-        <Footer />
-      </div>
-    );
-  }
-}
+const FormPage = () => {
+  return (
+    <div className="form">
+      <Header page="form" />
+      <FormMain />
+      <Footer />
+    </div>
+  );
+};
+
+export default FormPage;
