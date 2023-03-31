@@ -1,38 +1,36 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
 
-export default class SearchBar extends React.Component<Record<string, never>, { value: string }> {
-  state = { value: localStorage.getItem('search-key987') || '' };
+const SearchBar = () => {
+  const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
+  const valueRef = useRef<string>(value);
 
-  componentDidMount() {
+  useEffect(() => {
+    valueRef.current = value;
+  }, [value]);
+
+  useEffect(() => {
     const savedValue = localStorage.getItem('search-key987');
-    savedValue && this.setState({ value: savedValue });
-    window.addEventListener('beforeunload', () => this.saveValue(this.state.value));
+    savedValue && setValue(savedValue);
+    return () => {
+      localStorage.setItem('search-key987', valueRef.current || '');
+    };
+  }, []);
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setValue(event.target.value);
   }
 
-  componentWillUnmount() {
-    this.saveValue(this.state.value);
-  }
+  return (
+    <div className="search-wrapper">
+      <input
+        type="search"
+        className="search-bar"
+        value={value}
+        onChange={(event) => handleChange(event)}
+      />
+    </div>
+  );
+};
 
-  saveValue(value: string) {
-    localStorage.setItem('search-key987', value);
-  }
-
-  handleChange(event: ChangeEvent<HTMLInputElement>) {
-    this.setState({ value: event.target.value });
-    this.saveValue(event.target.value);
-  }
-
-  render() {
-    return (
-      <div className="search-wrapper">
-        <input
-          type="search"
-          className="search-bar"
-          value={this.state.value}
-          onChange={(event) => this.handleChange(event)}
-        />
-      </div>
-    );
-  }
-}
+export default SearchBar;
