@@ -1,8 +1,8 @@
 import React from 'react';
 import { FORM_ERRORS, FORM_PAGE_TITLES } from '../../../constants/constants';
 import { Path, UseFormRegister } from 'react-hook-form';
-import { validatePicture } from 'utils/formValidation';
-import { SubmitData } from 'types/types';
+import { validatePicture } from '../../../utils/formValidation';
+import { SubmitData } from '../../../types/types';
 
 type Props = {
   register: UseFormRegister<SubmitData>;
