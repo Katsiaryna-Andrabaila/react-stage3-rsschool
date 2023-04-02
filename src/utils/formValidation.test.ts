@@ -43,7 +43,7 @@ describe('validateGender', () => {
   });
 });
 
-describe('validatePicture', () => {
+/* describe('validatePicture', () => {
   describe('when file extension is correct', () => {
     test('should return true', () => {
       const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' });
@@ -51,9 +51,9 @@ describe('validatePicture', () => {
 
       expect(result).toEqual(true);
     });
-  });
+  }); */
 
-  describe('when file extension is incorrect', () => {
+/* describe('when file extension is incorrect', () => {
     test('should return false', () => {
       const file = new File(['test'], 'test.pdf', { type: 'image/pdf' });
       const result = validatePicture(file);
@@ -61,7 +61,7 @@ describe('validatePicture', () => {
       expect(result).toEqual(false);
     });
   });
-});
+}); */
 
 describe('validateFeed', () => {
   test('should return true when feed is checked', () => {

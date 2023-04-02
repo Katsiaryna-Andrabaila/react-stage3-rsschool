@@ -1,21 +1,36 @@
 import React from 'react';
 import { FORM_ERRORS, FORM_PAGE_TITLES } from '../../../constants/constants';
+import { Path, UseFormRegister } from 'react-hook-form';
+import { SubmitData } from 'types/types';
 
-const RadioInputs = (props: {
-  maleRef: React.RefObject<HTMLInputElement>;
-  femaleRef: React.RefObject<HTMLInputElement>;
-  genderError: string;
-}) => {
-  const { maleRef, femaleRef, genderError } = props;
+type Props = {
+  register: UseFormRegister<SubmitData>;
+  gender: Path<{ gender: string }>;
+  genderError: string | undefined;
+};
+
+const RadioInputs = ({ register, gender, genderError }: Props) => {
   return (
     <div className="input-wrapper">
       <div className="input-label">
         <label className="radio-label">
-          <input type="radio" name="gender" ref={maleRef} />
+          <input
+            type="radio"
+            {...register(gender, {
+              required: FORM_ERRORS.genderError,
+            })}
+            value="male"
+          />
           <span>{FORM_PAGE_TITLES.male}</span>
         </label>
         <label className="radio-label">
-          <input type="radio" name="gender" ref={femaleRef} />
+          <input
+            type="radio"
+            {...register(gender, {
+              required: FORM_ERRORS.genderError,
+            })}
+            value="female"
+          />
           <span>{FORM_PAGE_TITLES.female}</span>
         </label>
       </div>

@@ -33,3 +33,12 @@ export type FormCard = {
   picture: File;
   feed: string[];
 };
+
+export type SubmitData = {
+  name: string;
+  birth: string;
+  hair: string;
+  gender: string;
+  picture: FileList;
+  feed: string[];
+};

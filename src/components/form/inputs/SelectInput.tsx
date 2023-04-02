@@ -1,13 +1,25 @@
 import React from 'react';
 import { FORM_ERRORS, FORM_PAGE_TITLES } from '../../../constants/constants';
+import { Path, UseFormRegister } from 'react-hook-form';
+import { SubmitData } from 'types/types';
 
-const SelectInput = (props: { hairRef: React.RefObject<HTMLSelectElement>; hairError: string }) => {
-  const { hairRef, hairError } = props;
+type Props = {
+  register: UseFormRegister<SubmitData>;
+  hair: Path<{ hair: string }>;
+  hairError: string | undefined;
+};
+
+const SelectInput = ({ register, hair, hairError }: Props) => {
   return (
     <div className="input-wrapper">
       <label className="label">
         {FORM_PAGE_TITLES.hairLength}
-        <select ref={hairRef} className="input">
+        <select
+          {...register(hair, {
+            required: FORM_ERRORS.hairError,
+          })}
+          className="input"
+        >
           <option></option>
           <option>{FORM_PAGE_TITLES.long}</option>
           <option>{FORM_PAGE_TITLES.middle}</option>

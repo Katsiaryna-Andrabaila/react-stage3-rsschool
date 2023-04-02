@@ -20,9 +20,9 @@ export const validateHair = (hair: string | undefined) => {
 export const validateGender = (male: boolean | undefined, female: boolean | undefined) =>
   male || female;
 
-export const validatePicture = (path: File | undefined) => {
-  if (path) {
-    const ext = path.name.split('.').reverse()[0];
+export const validatePicture = (path: FileList | undefined) => {
+  if (path?.length) {
+    const ext = path[0].name.split('.').reverse()[0];
     return ext === 'jpg' || ext === 'jpeg' || ext === 'png' || ext === 'gif';
   } else {
     return false;
