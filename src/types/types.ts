@@ -42,3 +42,8 @@ export type SubmitData = {
   picture: FileList;
   feed: string[];
 };
+
+export type SearchCard = {
+  image: string;
+  title: string;
+};
