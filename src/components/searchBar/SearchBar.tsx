@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
-import { SearchCard } from 'types/types';
+import { FoundMovie } from '../../types/types';
 import { useForm } from 'react-hook-form';
-import { getItems } from 'api/getItems';
+import { searchItems } from '../../api/searchItems';
 
-const SearchBar = (props: { searchCards: (cards: SearchCard[]) => void }) => {
+const SearchBar = (props: { searchCards: (cards: FoundMovie[]) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
   const valueRef = useRef<string>(value);
 
@@ -15,8 +15,6 @@ const SearchBar = (props: { searchCards: (cards: SearchCard[]) => void }) => {
   }, [value]);
 
   useEffect(() => {
-    const savedValue = localStorage.getItem('search-key987');
-    savedValue && setValue(savedValue);
     return () => {
       localStorage.setItem('search-key987', valueRef.current || '');
     };
@@ -26,10 +24,11 @@ const SearchBar = (props: { searchCards: (cards: SearchCard[]) => void }) => {
     setValue(event.target.value);
   };
 
-  const onSubmit = () => {
-    console.log(0);
-    getItems();
-    //props.searchCards();
+  const onSubmit = async () => {
+    const cards = (await searchItems(valueRef.current)).results;
+
+    console.log(cards);
+    props.searchCards(cards);
   };
 
   return (

@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/searchBar/SearchBar';
-import items from '../../data/items.json';
 import Card from '../../components/card/Card';
 import './Main.css';
-import { SearchCard } from 'types/types';
+import { BestMovie, FoundMovie } from '../../types/types';
+import { MAX_ITEMS_PER_PAGE } from '../../constants/constants';
 
-const Main = () => {
-  const [cards, setCards] = useState<{ cards: SearchCard[] }>({ cards: [] });
+const Main = (props: { cards: BestMovie[] }) => {
+  const [cards, setCards] = useState<FoundMovie[]>([]);
 
-  const searchCards = (cards: SearchCard[]) => {
-    setCards({ cards });
+  const searchCards = (cards: FoundMovie[]) => {
+    setCards(cards);
   };
 
   return (
     <main className="main">
       <SearchBar searchCards={searchCards} />
       <section className="cards">
-        {items.products.map((item) => {
-          return <Card key={item.id} {...item} />;
-        })}
+        {!cards.length
+          ? props.cards.map((item: BestMovie) => {
+              return <Card key={item.id} {...item} />;
+            })
+          : cards.slice(0, MAX_ITEMS_PER_PAGE).map((item: FoundMovie) => {
+              return <Card key={item.id} {...item} />;
+            })}
       </section>
     </main>
   );

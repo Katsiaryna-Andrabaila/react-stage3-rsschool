@@ -18,9 +18,6 @@ export const CARD_INFO = {
   time: 'Breed appearance time: ',
 };
 
-export const SPACE = '\u00A0';
-export const SPACE_REPEATING = 5;
-
 export const GITHUB_NAME = 'katsiaryna-andrabaila';
 
 export const YEAR_OF_CREATION = 2023;
@@ -62,3 +59,8 @@ export const URL = {
   search: 'https://imdb-api.com/en/API/SearchMovie/k_q4002a8a/',
   byID: 'https://imdb-api.com/en/API/Title/k_q4002a8a/',
 };
+
+export const DEFAULT_IMG =
+  'https://phonoteka.org/uploads/posts/2021-07/1625498744_11-phonoteka-org-p-zastavki-k-filmam-dlya-videomontazha-krasi-11.jpg';
+
+export const MAX_ITEMS_PER_PAGE = 24;

@@ -6,10 +6,15 @@
   border-radius: 0.5rem;
   padding: 2rem;
   background-color: #dcdcdccf;
+  cursor: pointer;
 
   font-size: 1.4rem;
   color: #120a8f;
   text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .card-header {

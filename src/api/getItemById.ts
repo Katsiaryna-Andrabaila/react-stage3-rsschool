@@ -1,6 +1,6 @@
 import { URL } from '../constants/constants';
 
-export const getItems = async (id: string) => {
+export const getItemById = async (id: string) => {
   try {
     const response = await fetch(`${URL.byID}${id}`, {
       method: 'GET',
