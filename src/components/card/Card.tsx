@@ -1,13 +1,15 @@
 import React from 'react';
-import { BestMovie, FoundMovie } from '../../types/types';
+import { BestMovie, FoundMovie, Movie } from '../../types/types';
 import './Card.css';
 import { DEFAULT_IMG } from 'constants/constants';
+import { getItemById } from 'api/getItemById';
 
-const Card = (props: FoundMovie | BestMovie) => {
-  const { title, image } = props;
+const Card = (props: { card: FoundMovie | BestMovie; openPortal: (movie: Movie) => void }) => {
+  const { title, image, id } = props.card;
 
   const handleClick = async () => {
-    console.log(0);
+    const movie = await getItemById(id);
+    props.openPortal(movie);
   };
 
   return (

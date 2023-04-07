@@ -29,3 +29,44 @@
 
   object-fit: cover;
 }
+
+.portal {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+
+  padding: 3rem;
+  border-radius: 0.5rem;
+}
+
+.close-portal {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 3rem;
+
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.close-portal:hover {
+  transform: scale(1.2);
+}
+
+.shadow {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 7;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.219);
+}
