@@ -6,6 +6,7 @@ import { BestMovie, FoundMovie, Movie } from '../../types/types';
 import { MAX_ITEMS_PER_PAGE } from '../../constants/constants';
 import Portal from 'components/card/Portal';
 import { createPortal } from 'react-dom';
+import Shadow from 'components/card/Shadow';
 
 const Main = (props: { cards: BestMovie[] }) => {
   const [cards, setCards] = useState<FoundMovie[]>([]);
@@ -21,6 +22,10 @@ const Main = (props: { cards: BestMovie[] }) => {
     setMovie(movie);
   };
 
+  const closePortal = () => {
+    setIsPortalOpen(false);
+  };
+
   return (
     <main className="main">
       <SearchBar searchCards={searchCards} />
@@ -33,7 +38,14 @@ const Main = (props: { cards: BestMovie[] }) => {
               return <Card key={item.id} card={item} openPortal={openPortal} />;
             })}
       </section>
-      {isPortalOpen && createPortal(<Portal {...movie} />, document.body)}
+      {isPortalOpen &&
+        createPortal(
+          <>
+            <Portal movie={movie} closePortal={closePortal} />
+            <Shadow closePortal={closePortal} />
+          </>,
+          document.body
+        )}
     </main>
   );
 };

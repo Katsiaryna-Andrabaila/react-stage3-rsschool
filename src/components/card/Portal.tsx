@@ -1,7 +1,7 @@
 import React from 'react';
 import { Movie } from '../../types/types';
 
-const Portal = (props: Movie) => {
+const Portal = (props: { movie: Movie; closePortal: () => void }) => {
   const {
     title,
     year,
@@ -14,11 +14,20 @@ const Portal = (props: Movie) => {
     plot,
     releaseDate,
     wikipedia,
-  } = props;
+  } = props.movie;
+
+  const handleClick = () => {
+    props.closePortal();
+  };
 
   return (
     <div className="portal">
-      <img src="../../assets/close.svg" className="close-portal" alt="Close card" />
+      <img
+        src="../../assets/close.svg"
+        className="close-portal"
+        alt="Close card"
+        onClick={handleClick}
+      />
       <h2>{title}</h2>
       <img src={image} />
       <p>Year: {year}</p>
