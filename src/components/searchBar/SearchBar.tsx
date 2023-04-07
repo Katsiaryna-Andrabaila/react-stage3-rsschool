@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
 import { SearchCard } from 'types/types';
 import { useForm } from 'react-hook-form';
+import { getItems } from 'api/getItems';
 
 const SearchBar = (props: { searchCards: (cards: SearchCard[]) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
@@ -27,6 +28,7 @@ const SearchBar = (props: { searchCards: (cards: SearchCard[]) => void }) => {
 
   const onSubmit = () => {
     console.log(0);
+    getItems();
     //props.searchCards();
   };
 

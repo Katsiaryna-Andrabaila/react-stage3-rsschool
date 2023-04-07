@@ -56,3 +56,9 @@ export const FORM_ERRORS = {
 
 export const NEW_CARD_MESSAGE = 'New card created!';
 export const MESSAGE_DELAY = 2500;
+
+export const URL = {
+  general: 'https://imdb-api.com/en/API/MostPopularMovies/k_q4002a8a',
+  search: 'https://imdb-api.com/en/API/SearchMovie/k_q4002a8a/',
+  byID: 'https://imdb-api.com/en/API/Title/k_q4002a8a/',
+};
