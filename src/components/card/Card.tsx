@@ -1,20 +1,20 @@
 import React from 'react';
-import { BestMovie, FoundMovie, Movie } from '../../types/types';
+import { FoundItem, Item } from '../../types/types';
 import './Card.css';
+import { getItemById } from '../../api/getItemById';
 import { DEFAULT_IMG } from 'constants/constants';
-import { getItemById } from 'api/getItemById';
 
-const Card = (props: { card: FoundMovie | BestMovie; openPortal: (movie: Movie) => void }) => {
-  const { title, image, id } = props.card;
+const Card = (props: { card: FoundItem | Item; openPortal: (item: Item) => void }) => {
+  const { title, thumbnail, id } = props.card;
 
   const handleClick = async () => {
-    const movie = await getItemById(id);
-    props.openPortal(movie);
+    const item = await getItemById(id);
+    props.openPortal(item);
   };
 
   return (
     <div className="card" data-testid="test-card" onClick={handleClick}>
-      <img src={image || DEFAULT_IMG} className="card-image" alt="movie poster" />
+      <img src={thumbnail?.lqip || DEFAULT_IMG} className="card-image" alt={thumbnail?.alt_text} />
       <h2 className="card-header">{title}</h2>
     </div>
   );

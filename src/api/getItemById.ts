@@ -1,15 +1,11 @@
 import { URL } from '../constants/constants';
 
-export const getItemById = async (id: string) => {
+export const getItemById = async (id: number) => {
   try {
-    const response = await fetch(`${URL.byID}${id}`, {
+    const response = await fetch(`${URL}/${id}`, {
       method: 'GET',
     });
-    if (response.status !== 200) {
-      throw { ...(await response.json()) }.message;
-    }
-    console.log(await response.json());
-    return await response.json();
+    return (await response.json()).data;
   } catch (err) {
     console.log(err);
   }

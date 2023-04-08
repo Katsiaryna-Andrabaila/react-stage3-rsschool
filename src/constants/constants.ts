@@ -54,13 +54,9 @@ export const FORM_ERRORS = {
 export const NEW_CARD_MESSAGE = 'New card created!';
 export const MESSAGE_DELAY = 2500;
 
-export const URL = {
-  general: 'https://imdb-api.com/en/API/MostPopularMovies/k_q4002a8a',
-  search: 'https://imdb-api.com/en/API/SearchMovie/k_q4002a8a/',
-  byID: 'https://imdb-api.com/en/API/Title/k_q4002a8a/',
-};
+export const URL = 'https://api.artic.edu/api/v1/artworks';
 
 export const DEFAULT_IMG =
-  'https://phonoteka.org/uploads/posts/2021-07/1625498744_11-phonoteka-org-p-zastavki-k-filmam-dlya-videomontazha-krasi-11.jpg';
+  'https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found.jpg';
 
 export const MAX_ITEMS_PER_PAGE = 24;

@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
-import { FoundMovie } from '../../types/types';
+import { FoundItem } from '../../types/types';
 import { useForm } from 'react-hook-form';
 import { searchItems } from '../../api/searchItems';
 
-const SearchBar = (props: { searchCards: (cards: FoundMovie[]) => void }) => {
+const SearchBar = (props: { searchCards: (cards: FoundItem[]) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
   const valueRef = useRef<string>(value);
 
@@ -25,7 +25,7 @@ const SearchBar = (props: { searchCards: (cards: FoundMovie[]) => void }) => {
   };
 
   const onSubmit = async () => {
-    const cards = (await searchItems(valueRef.current)).results;
+    const cards = await searchItems(value);
 
     console.log(cards);
     props.searchCards(cards);
