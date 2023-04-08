@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Main from './pages/main/Main';
 import Header from './components/header/Header';
@@ -10,12 +10,14 @@ import { searchItems } from 'api/searchItems';
 const App = () => {
   const [cards, setCards] = useState<Item[]>([]);
 
-  const setDefaultCards = async () => {
-    const searchValue = localStorage.getItem('search-key987');
-    searchValue ? setCards(await searchItems(searchValue)) : setCards(await getItems());
-  };
+  useEffect(() => {
+    const setDefaultCards = async () => {
+      const searchValue = localStorage.getItem('search-key987');
+      searchValue ? setCards(await searchItems(searchValue)) : setCards(await getItems());
+    };
 
-  setDefaultCards();
+    setDefaultCards();
+  }, []);
 
   return (
     <div className="App">

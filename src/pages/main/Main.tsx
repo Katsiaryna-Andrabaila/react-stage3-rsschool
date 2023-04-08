@@ -32,19 +32,19 @@ const Main = (props: { defaultCards: Item[] }) => {
     <main className="main">
       <SearchBar searchCards={searchCards} />
       <React.Suspense fallback={<Skeleton count={5} width={40} height={40} />}>
-        <section className="cards">
-          {cards && !cards.length ? (
-            props.defaultCards.map((el: Item) => {
-              return <Card key={el.id} card={el} openPortal={openPortal} />;
-            })
-          ) : !cards ? (
-            <h4 className="no-data">{NO_DATA}</h4>
-          ) : (
-            cards.map((el: FoundItem) => {
-              return <Card key={el.id} card={el} openPortal={openPortal} />;
-            })
-          )}
-        </section>
+        {!cards ? (
+          <h4 className="no-data">{NO_DATA}</h4>
+        ) : (
+          <section className="cards">
+            {cards && !cards.length
+              ? props.defaultCards.map((el: Item) => {
+                  return <Card key={el.id} card={el} openPortal={openPortal} />;
+                })
+              : cards.map((el: FoundItem) => {
+                  return <Card key={el.id} card={el} openPortal={openPortal} />;
+                })}
+          </section>
+        )}
       </React.Suspense>
       {isPortalOpen &&
         createPortal(
