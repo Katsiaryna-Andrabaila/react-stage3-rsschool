@@ -60,3 +60,5 @@ export const DEFAULT_IMG =
   'https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found.jpg';
 
 export const MAX_ITEMS_PER_PAGE = 24;
+
+export const NO_DATA = 'No data found for your request. Please try another query';

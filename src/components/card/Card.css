@@ -23,23 +23,23 @@
 
 .card-image {
   width: 100%;
-  height: 100%;
+  height: 40vh;
 
   border-radius: 0.5rem;
 
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .portal {
   position: fixed;
   top: 5%;
-  left: 20%;
+  left: 18%;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: 60%;
+  width: 65%;
 
   background-color: #f0f8ff;
   padding: 1rem;
@@ -79,8 +79,8 @@
 }
 
 .portal-image {
-  width: 100%;
   height: 40vh;
+  max-width: 100%;
 
   border-radius: 0.5rem;
 
@@ -89,4 +89,9 @@
 
 .portal p {
   margin: 0.5rem 0;
+}
+
+.loading {
+  font-size: 4rem;
+  color: red;
 }

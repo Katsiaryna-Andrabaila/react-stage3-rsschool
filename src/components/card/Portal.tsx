@@ -1,6 +1,8 @@
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Item } from '../../types/types';
-import { DEFAULT_IMG } from 'constants/constants';
+import { DEFAULT_IMG } from '../../constants/constants';
 
 const Portal = (props: { item: Item; closePortal: () => void }) => {
   const {
@@ -24,11 +26,17 @@ const Portal = (props: { item: Item; closePortal: () => void }) => {
     <div className="portal">
       <div className="close-portal" onClick={handleClick}></div>
       <h2>{title}</h2>
-      <img
-        src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg` || DEFAULT_IMG}
-        className="portal-image"
-        alt={thumbnail?.alt_text}
-      />
+      {(
+        <img
+          src={
+            image_id
+              ? `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`
+              : DEFAULT_IMG
+          }
+          className="portal-image"
+          alt={thumbnail?.alt_text}
+        />
+      ) || <Skeleton count={5} width={40} height={40} />}
       <p>Date of display: {date_display}</p>
       <p>End date: {date_end}</p>
       <p>Artist display: {artist_display}</p>

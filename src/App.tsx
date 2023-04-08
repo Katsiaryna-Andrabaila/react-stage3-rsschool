@@ -5,12 +5,14 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import { Item } from './types/types';
 import { getItems } from './api/getItems';
+import { searchItems } from 'api/searchItems';
 
 const App = () => {
   const [cards, setCards] = useState<Item[]>([]);
 
   const setDefaultCards = async () => {
-    setCards(await getItems());
+    const searchValue = localStorage.getItem('search-key987');
+    searchValue ? setCards(await searchItems(searchValue)) : setCards(await getItems());
   };
 
   setDefaultCards();

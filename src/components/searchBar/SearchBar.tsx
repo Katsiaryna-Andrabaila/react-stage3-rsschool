@@ -4,7 +4,7 @@ import { FoundItem } from '../../types/types';
 import { useForm } from 'react-hook-form';
 import { searchItems } from '../../api/searchItems';
 
-const SearchBar = (props: { searchCards: (cards: FoundItem[]) => void }) => {
+const SearchBar = (props: { searchCards: (cards: FoundItem[] | null) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
   const valueRef = useRef<string>(value);
 
@@ -25,10 +25,11 @@ const SearchBar = (props: { searchCards: (cards: FoundItem[]) => void }) => {
   };
 
   const onSubmit = async () => {
-    const cards = await searchItems(value);
+    setValue(valueRef.current);
+    const cards = await searchItems(valueRef.current);
 
     console.log(cards);
-    props.searchCards(cards);
+    cards.length ? props.searchCards(cards) : props.searchCards(null);
   };
 
   return (
