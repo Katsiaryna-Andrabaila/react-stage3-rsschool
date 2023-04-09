@@ -1,10 +1,8 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
-import { FoundItem } from '../../types/types';
 import { useForm } from 'react-hook-form';
-import { searchItems } from '../../api/searchItems';
 
-const SearchBar = (props: { searchCards: (cards: FoundItem[] | null) => void }) => {
+const SearchBar = (props: { searchCards: (value: string) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
   const valueRef = useRef<string>(value);
 
@@ -24,12 +22,9 @@ const SearchBar = (props: { searchCards: (cards: FoundItem[] | null) => void }) 
     setValue(event.target.value);
   };
 
-  const onSubmit = async () => {
+  const onSubmit = () => {
     setValue(valueRef.current);
-    const cards = await searchItems(valueRef.current);
-
-    console.log(cards);
-    cards.length ? props.searchCards(cards) : props.searchCards(null);
+    props.searchCards(value);
   };
 
   return (

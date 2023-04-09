@@ -10,6 +10,7 @@
 }
 
 .cards {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -25,4 +26,39 @@
   font-weight: 700;
   color: #b70606;
   text-align: center;
+}
+
+.loading {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  z-index: 15;
+  font-size: 4rem;
+  color: red;
+}
+
+.skeleton_cards {
+  position: fixed;
+  top: 20%;
+  left: 4.5%;
+  z-index: 15;
+
+  width: 89.5%;
+  height: 75vh;
+
+  background-color: #dcdcdccf;
+  border-radius: 0.5rem;
+}
+
+.skeleton_portal {
+  position: fixed;
+  top: 10%;
+  left: 18%;
+  z-index: 15;
+
+  width: 65%;
+  min-height: 71vh;
+
+  background-color: #f0f8ff;
+  border-radius: 0.5rem;
 }
