@@ -8,8 +8,8 @@ import Card from '../../components/card/Card';
 import { FoundItem, Item } from '../../types/types';
 import Portal from '../../components/card/Portal';
 import Shadow from '../../components/card/Shadow';
-import { NO_DATA } from 'constants/constants';
-import { searchItems } from 'api/searchItems';
+import { NO_DATA } from '../../constants/constants';
+import { searchItems } from '../../api/searchItems';
 
 const Main = (props: { defaultCards: Item[] }) => {
   const [value, setValue] = useState<string>('');
@@ -23,15 +23,15 @@ const Main = (props: { defaultCards: Item[] }) => {
       setIsLoading(true);
 
       const cards = await searchItems(value);
-      cards.length ? setCards(await cards) : setCards(null);
+      cards && cards.length ? setCards(await cards) : setCards(null);
 
       setIsLoading(false);
     };
     setData();
   }, [value]);
 
-  const searchCards = async (value: string) => {
-    setValue(value);
+  const searchCards = async (searchValue: string) => {
+    setValue(searchValue);
   };
 
   const openPortal = (item: Item) => {

@@ -7,7 +7,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import { Item } from './types/types';
 import { getItems } from './api/getItems';
-import { searchItems } from 'api/searchItems';
+import { searchItems } from './api/searchItems';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
