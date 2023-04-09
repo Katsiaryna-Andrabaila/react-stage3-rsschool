@@ -17,7 +17,8 @@ const App = () => {
     setIsLoading(true);
     const setDefaultCards = async () => {
       const searchValue = localStorage.getItem('search-key987');
-      searchValue ? setCards(await searchItems(searchValue)) : setCards(await getItems());
+      const cards = searchValue ? await searchItems(searchValue) : await getItems();
+      setCards(cards);
     };
 
     setDefaultCards();

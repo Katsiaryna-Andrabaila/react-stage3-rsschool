@@ -2,17 +2,31 @@
  * @jest-environment jsdom
  */
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import items from '../../data/items.json';
 import Card from './Card';
+import { Item } from '../../types/types';
+import userEvent from '@testing-library/user-event';
+import { jest } from '@jest/globals';
 
-/* describe('Card', () => {
-  test('should contain test id and alt text for photo', () => {
-    render(<Card {...items.products[0]} />);
+describe('Card', () => {
+  test('should open Portal after clicking', () => {
+    const card: Item = { id: 1, title: 'Winter' };
 
-    expect(screen.getByAltText<HTMLImageElement>(/dog photo/i)).toBeInTheDocument();
+    const cards: Item[] = [];
 
-    expect(screen.getByTestId('test-card')).toBeInTheDocument();
+    const mockOpenPortal = (item: Item) => {
+      cards.push(item);
+    };
+
+    global.fetch = jest.fn(() =>
+      Promise.resolve({ json: () => Promise.resolve(card) })
+    ) as jest.Mock<() => Promise<Response>>;
+
+    render(<Card card={card} openPortal={mockOpenPortal} />);
+
+    userEvent.click(screen.getByTestId('test-card'));
+
+    waitFor(() => expect(screen.getByTestId('test-portal')).toBeInTheDocument());
   });
-}); */
+});

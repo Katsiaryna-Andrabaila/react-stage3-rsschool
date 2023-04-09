@@ -44,6 +44,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest-location-mock": "^1.0.9",
     "lint-staged": "^12.4.1",
+    "msw": "^1.2.1",
     "prettier": "^2.6.2",
     "ts-jest": "^29.0.5"
   },

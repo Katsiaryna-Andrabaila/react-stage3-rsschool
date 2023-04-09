@@ -46,11 +46,11 @@ const Main = (props: { defaultCards: Item[] }) => {
   const cardsToRender =
     cards && !cards.length
       ? props.defaultCards.map((el: Item) => {
-          return <Card key={el.id} card={el} openPortal={openPortal} />;
+          return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
         })
       : cards &&
         cards.map((el: FoundItem) => {
-          return <Card key={el.id} card={el} openPortal={openPortal} />;
+          return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
         });
 
   return (
@@ -61,14 +61,18 @@ const Main = (props: { defaultCards: Item[] }) => {
         <h4 className="no-data">{NO_DATA}</h4>
       ) : (
         <section className="cards">
-          {isLoading ? <Skeleton className="skeleton_cards" count={5} /> : cardsToRender}
+          {isLoading ? (
+            <Skeleton className="skeleton_cards" count={5} data-testid="test-skeleton_cards" />
+          ) : (
+            cardsToRender
+          )}
         </section>
       )}
 
       {isPortalOpen &&
         createPortal(
           <>
-            <Portal item={item} closePortal={closePortal} />
+            <Portal item={item} closePortal={closePortal} data-testid="test-portal" />
             <Shadow closePortal={closePortal} />
           </>,
           document.body
