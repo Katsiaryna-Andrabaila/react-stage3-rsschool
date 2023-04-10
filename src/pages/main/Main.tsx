@@ -12,7 +12,6 @@ import { NO_DATA } from '../../constants/constants';
 import { searchItems } from '../../api/searchItems';
 
 const Main = (props: { defaultCards: Item[] }) => {
-  console.log(props.defaultCards);
   const [value, setValue] = useState<string>('');
   const [cards, setCards] = useState<FoundItem[] | null>([]);
   const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
