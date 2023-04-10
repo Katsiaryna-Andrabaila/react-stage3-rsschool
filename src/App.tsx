@@ -14,8 +14,8 @@ const App = () => {
   useEffect(() => {
     const setDefaultCards = async () => {
       const searchValue = localStorage.getItem('search-key987');
-      const cards = searchValue ? await searchItems(searchValue) : await getItems();
-      setCards(cards);
+      const resultCards = searchValue ? await searchItems(searchValue) : await getItems();
+      setCards(resultCards);
     };
 
     setDefaultCards();
