@@ -3,7 +3,6 @@
  */
 
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import { render, screen, waitFor } from '@testing-library/react';
 import { jest } from '@jest/globals';
 import React from 'react';
