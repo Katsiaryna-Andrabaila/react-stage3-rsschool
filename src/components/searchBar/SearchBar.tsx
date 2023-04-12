@@ -15,7 +15,6 @@ const SearchBar = (props: { searchCards: (value: string) => void }) => {
   useEffect(() => {
     return () => {
       localStorage.setItem('search-key987', valueRef.current || '');
-      window.addEventListener('beforeunload', () => setValue(value));
     };
   }, [value]);
 
@@ -24,7 +23,7 @@ const SearchBar = (props: { searchCards: (value: string) => void }) => {
   };
 
   const onSubmit = () => {
-    setValue(valueRef.current);
+    localStorage.setItem('search-key987', valueRef.current);
     props.searchCards(value);
   };
 
