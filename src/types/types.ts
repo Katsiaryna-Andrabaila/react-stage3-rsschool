@@ -78,3 +78,21 @@ export type Item = {
   gallery_title?: string;
   medium_display?: string;
 };
+
+export type CardsInitialState = {
+  value: string;
+  cards: FoundItem[] | Item[] | null;
+  isPortalOpen: boolean;
+  item: Item;
+  isLoading: boolean;
+};
+
+export type FormInitialState = {
+  formCards: FormCard[];
+  showMessage: boolean;
+};
+
+export type FormPayloadAction = {
+  card: FormCard;
+  showMessage: boolean;
+};
