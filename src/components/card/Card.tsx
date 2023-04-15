@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { FoundItem, Item } from '../../types/types';
+import { Item } from '../../types/types';
 import './Card.css';
-import { getItemById } from '../../api/getItemById';
 import { DEFAULT_IMG } from '../../constants/constants';
+import { useGetItemByIdQuery } from 'redux/reducers';
 
-const Card = (props: { card: FoundItem | Item; openPortal: (item: Item) => void }) => {
+const Card = (props: { card: Item; openPortal: (item: Item) => void }) => {
   const { title, thumbnail, id } = props.card;
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { data: item, isFetching } = useGetItemByIdQuery(id);
 
   const handleClick = async () => {
-    setIsLoading(true);
-
-    const item = await getItemById(id);
-    props.openPortal(item);
-
-    setIsLoading(false);
+    item && props.openPortal(item);
   };
 
-  return isLoading ? (
+  return isFetching ? (
     <Skeleton className="skeleton_portal" count={5} />
   ) : (
     <div className="card" data-testid="test-card" onClick={handleClick}>

@@ -51,7 +51,7 @@ export const api = createApi({
         }
       },
     }),
-    getItemById: build.query<FoundItem, number>({
+    getItemById: build.query<Item, number>({
       queryFn: async (id: number) => {
         try {
           const response = await fetch(`${URL}/${id}`);

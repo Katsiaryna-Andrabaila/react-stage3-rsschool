@@ -1,36 +1,40 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef } from 'react';
 import './search.css';
 import { useForm } from 'react-hook-form';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { setValue } from '../../redux/reducers';
 
-const SearchBar = (props: { searchCards: (value: string) => void }) => {
-  const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
-  const valueRef = useRef<string>(value);
+const SearchBar = () => {
+  const dispatch = useAppDispatch();
+  const { search } = useAppSelector((state) => state.search);
+
+  const valueRef = useRef<string>(search);
 
   const { handleSubmit } = useForm({ mode: 'onSubmit' });
 
   useEffect(() => {
-    valueRef.current = value;
-  }, [value]);
+    valueRef.current = search;
+  }, [search]);
 
   useEffect(() => {
     return () => {
-      localStorage.setItem('search-key987', valueRef.current || '');
+      dispatch(setValue({ search: valueRef.current }));
     };
-  }, [value]);
+  }, [dispatch]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+    dispatch(setValue({ search: event.target.value }));
   };
 
   const onSubmit = () => {
-    localStorage.setItem('search-key987', valueRef.current);
-    props.searchCards(value);
+    dispatch(setValue({ search: valueRef.current }));
+    // props.searchCards(valueRef.current);
   };
 
   return (
     <div className="search-wrapper">
       <form className="form-component_search" onSubmit={handleSubmit(onSubmit)}>
-        <input type="search" className="search-bar" value={value} onChange={handleChange} />
+        <input type="search" className="search-bar" value={search} onChange={handleChange} />
       </form>
     </div>
   );

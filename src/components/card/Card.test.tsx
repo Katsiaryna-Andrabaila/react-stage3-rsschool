@@ -15,8 +15,8 @@ describe('Card', () => {
 
     const cards: Item[] = [];
 
-    const mockOpenPortal = (item: Item) => {
-      cards.push(item);
+    const mockOpenPortal = (item: Item | undefined) => {
+      item && cards.push(item);
     };
 
     global.fetch = jest.fn(() =>

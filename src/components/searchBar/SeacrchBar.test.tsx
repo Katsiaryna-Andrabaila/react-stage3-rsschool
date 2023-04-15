@@ -10,12 +10,7 @@ import SearchBar from './SearchBar';
 
 describe('App', () => {
   test('should contain the mock value in the search bar after page reload', async () => {
-    const test: string[] = [];
-    const mockSearchCards = (searchValue: string) => {
-      test.push(searchValue);
-    };
-
-    render(<SearchBar searchCards={mockSearchCards} />);
+    render(<SearchBar />);
 
     const input = screen.getByRole('searchbox');
     const value = 'test';

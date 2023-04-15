@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './reducers';
+import rootReducer, { api } from './reducers';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production',
-  /* middleware: (getdefaultMiddleware) =>
-    getdefaultMiddleware().concat([getmoviesdetails.middleware, authService.middleware]), */
+  middleware: (getdefaultMiddleware) => getdefaultMiddleware().concat(api.middleware),
 });
 
 setupListeners(store.dispatch);

@@ -3,12 +3,10 @@ import React from 'react';
 import Form from './Form';
 import FormCards from './FormCards';
 import { showMessage } from '../../redux/reducers';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../redux/store';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const FormMain = () => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { formCards, isMessage } = useAppSelector((state) => state.form);
 
   return (
