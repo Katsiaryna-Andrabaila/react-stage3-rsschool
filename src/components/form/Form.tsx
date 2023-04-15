@@ -8,8 +8,10 @@ import RadioInputs from './inputs/RadioInputs';
 import FileInput from './inputs/FileInput';
 import CheckboxInputs from './inputs/CheckboxInputs';
 import { useForm } from 'react-hook-form';
+import { useAppDispatch } from '../../redux/hooks';
+import { addCard, showMessage } from '../../redux/reducers';
 
-const Form = (props: { addFormCard: (card: FormCard, showMessage: boolean) => void }) => {
+const Form = () => {
   const {
     register,
     handleSubmit,
@@ -20,6 +22,8 @@ const Form = (props: { addFormCard: (card: FormCard, showMessage: boolean) => vo
     mode: 'onSubmit',
   });
 
+  const dispatch = useAppDispatch();
+
   const onSubmit = (data: SubmitData) => {
     const { name, birth, hair, gender, picture, feed } = data;
     const card: FormCard = {
@@ -28,10 +32,11 @@ const Form = (props: { addFormCard: (card: FormCard, showMessage: boolean) => vo
       birth,
       hair,
       gender,
-      picture: picture[0],
+      picture: URL.createObjectURL(picture[0]),
       feed,
     };
-    props.addFormCard(card, true);
+    dispatch(addCard({ card }));
+    dispatch(showMessage({ showMessage: true }));
   };
 
   useEffect(() => {

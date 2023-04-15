@@ -6,7 +6,7 @@ const FormCardComponent = (props: FormCard) => {
   return (
     <div className="form-card">
       <h2 className="form-card-header">{name}</h2>
-      <img src={URL.createObjectURL(picture)} className="form-card-image" alt="pet photo" />
+      <div style={{ backgroundImage: `url("${picture}")` }} className="form-card-image" />
       <h4>{gender}</h4>
       <h4>Date of birth: {birth}</h4>
       <h4>Hair: {hair}</h4>

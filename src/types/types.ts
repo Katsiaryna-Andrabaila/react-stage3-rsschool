@@ -30,7 +30,7 @@ export type FormCard = {
   birth: string;
   hair: string;
   gender: string;
-  picture: File;
+  picture: string;
   feed: string[];
 };
 
@@ -89,10 +89,5 @@ export type CardsInitialState = {
 
 export type FormInitialState = {
   formCards: FormCard[];
-  showMessage: boolean;
-};
-
-export type FormPayloadAction = {
-  card: FormCard;
-  showMessage: boolean;
+  isMessage: boolean;
 };

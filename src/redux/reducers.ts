@@ -1,26 +1,31 @@
 import { PayloadAction, combineReducers, createSlice } from '@reduxjs/toolkit';
-import {
-  CardsInitialState,
-  FormInitialState,
-  FormPayloadAction,
-  FoundItem,
-  Item,
-} from '../types/types';
+import { FormCard, FormInitialState, FoundItem, Item } from '../types/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { URL } from '../constants/constants';
 
-const cardsInitialState: CardsInitialState = {
-  value: localStorage.getItem('search-key987') || '',
+const searchInitialState: { search: string } = {
+  search: '',
+};
+
+/* const cardsInitialState: CardsInitialState = {
+  value: '',
   cards: [],
   isPortalOpen: false,
   item: { id: 0, title: '' },
   isLoading: false,
-};
+}; */
 
-const formInitialState: FormInitialState = {
-  formCards: [],
-  showMessage: false,
-};
+const searchReducer = createSlice({
+  name: 'search',
+  initialState: searchInitialState,
+  reducers: {
+    setValue: (state, action: PayloadAction<{ search: string }>) => {
+      const { search } = action.payload;
+      state.search = search;
+    },
+  },
+});
+export const { setValue } = searchReducer.actions;
 
 export const api = createApi({
   reducerPath: 'api',
@@ -58,29 +63,33 @@ export const api = createApi({
     }),
   }),
 });
-
 export const { useGetItemsQuery, useSearchItemsQuery, useGetItemByIdQuery } = api;
 
-/* const cardsReducer = createSlice({
-    name: 'apiCards',
-    initialState: cardsInitialState,
-    reducers: {
-        
-    }
-}); */
+const formInitialState: FormInitialState = {
+  formCards: [],
+  isMessage: false,
+};
 
 const formReducer = createSlice({
   name: 'form',
   initialState: formInitialState,
   reducers: {
-    addCard: (state, action: PayloadAction<FormPayloadAction>) => {
-      const { card, showMessage } = action.payload;
+    addCard: (state, action: PayloadAction<{ card: FormCard }>) => {
+      const { card } = action.payload;
       state.formCards.push(card);
-      state.showMessage = showMessage;
+    },
+    showMessage: (state, action: PayloadAction<{ showMessage: boolean }>) => {
+      const { showMessage } = action.payload;
+      state.isMessage = showMessage;
     },
   },
 });
+export const { addCard, showMessage } = formReducer.actions;
 
-const rootReducer = combineReducers({ api: api.reducer, form: formReducer.reducer });
+const rootReducer = combineReducers({
+  search: searchReducer.reducer,
+  api: api.reducer,
+  form: formReducer.reducer,
+});
 
 export default rootReducer;
