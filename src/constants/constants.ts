@@ -62,3 +62,5 @@ export const DEFAULT_IMG =
 export const MAX_ITEMS_PER_PAGE = 24;
 
 export const NO_DATA = 'No data found for your request. Please try another query';
+
+export const PORTAL_ERROR = 'Sorry, we have a problem. Please, try again later';

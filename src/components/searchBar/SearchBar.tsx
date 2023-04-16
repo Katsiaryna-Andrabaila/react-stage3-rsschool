@@ -6,7 +6,7 @@ import { setValue } from '../../redux/reducers';
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
-  const { search } = useAppSelector((state) => state.search);
+  const { search } = useAppSelector((state) => state.main);
 
   const valueRef = useRef<string>(search);
 
@@ -28,7 +28,6 @@ const SearchBar = () => {
 
   const onSubmit = () => {
     dispatch(setValue({ search: valueRef.current }));
-    // props.searchCards(valueRef.current);
   };
 
   return (

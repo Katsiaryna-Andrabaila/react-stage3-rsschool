@@ -8,7 +8,7 @@ import { useAppSelector } from './redux/hooks';
 import { useGetItemsQuery } from './redux/reducers';
 
 const App = () => {
-  const { search } = useAppSelector((state) => state.search);
+  const { search } = useAppSelector((state) => state.main);
   const { data: defaultCards } = useGetItemsQuery(search);
 
   return (

@@ -13,10 +13,8 @@ describe('Card', () => {
   test('should open Portal after clicking', () => {
     const card: Item = { id: 1, title: 'Winter' };
 
-    const cards: Item[] = [];
-
-    const mockOpenPortal = (item: Item | undefined) => {
-      item && cards.push(item);
+    const mockOpenPortal = (itemId: number) => {
+      card.id = itemId;
     };
 
     global.fetch = jest.fn(() =>

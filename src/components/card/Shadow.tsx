@@ -1,8 +1,12 @@
 import React from 'react';
+import { setIsPortalOpen } from '../../redux/reducers';
+import { useAppDispatch } from '../../redux/hooks';
 
-const Shadow = (props: { closePortal: () => void }) => {
+const Shadow = () => {
+  const dispatch = useAppDispatch();
+
   const handleClick = () => {
-    props.closePortal();
+    dispatch(setIsPortalOpen({ isPortalOpen: false }));
   };
 
   return <div className="shadow" onClick={handleClick}></div>;

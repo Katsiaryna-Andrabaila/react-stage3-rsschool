@@ -1,31 +1,33 @@
 import { PayloadAction, combineReducers, createSlice } from '@reduxjs/toolkit';
-import { FormCard, FormInitialState, FoundItem, Item } from '../types/types';
+import { FormCard, FormInitialState, FoundItem, Item, MainInitialState } from '../types/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { URL } from '../constants/constants';
 
-const searchInitialState: { search: string } = {
+const mainInitialState: MainInitialState = {
   search: '',
+  isPortalOpen: false,
+  itemId: 0,
 };
 
-/* const cardsInitialState: CardsInitialState = {
-  value: '',
-  cards: [],
-  isPortalOpen: false,
-  item: { id: 0, title: '' },
-  isLoading: false,
-}; */
-
-const searchReducer = createSlice({
-  name: 'search',
-  initialState: searchInitialState,
+const mainReducer = createSlice({
+  name: 'main',
+  initialState: mainInitialState,
   reducers: {
     setValue: (state, action: PayloadAction<{ search: string }>) => {
       const { search } = action.payload;
       state.search = search;
     },
+    setIsPortalOpen: (state, action: PayloadAction<{ isPortalOpen: boolean }>) => {
+      const { isPortalOpen } = action.payload;
+      state.isPortalOpen = isPortalOpen;
+    },
+    setItemToOpen: (state, action: PayloadAction<{ itemId: number }>) => {
+      const { itemId } = action.payload;
+      state.itemId = itemId;
+    },
   },
 });
-export const { setValue } = searchReducer.actions;
+export const { setValue, setIsPortalOpen, setItemToOpen } = mainReducer.actions;
 
 export const api = createApi({
   reducerPath: 'api',
@@ -87,7 +89,7 @@ const formReducer = createSlice({
 export const { addCard, showMessage } = formReducer.actions;
 
 const rootReducer = combineReducers({
-  search: searchReducer.reducer,
+  main: mainReducer.reducer,
   api: api.reducer,
   form: formReducer.reducer,
 });

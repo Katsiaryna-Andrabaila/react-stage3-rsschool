@@ -91,3 +91,9 @@ export type FormInitialState = {
   formCards: FormCard[];
   isMessage: boolean;
 };
+
+export type MainInitialState = {
+  search: string;
+  isPortalOpen: boolean;
+  itemId: number;
+};
