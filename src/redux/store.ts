@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer, { api } from './reducers';
+import rootReducer from './reducers/rootReducer';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import api from './reducers/api';
 
 const store = configureStore({
   reducer: rootReducer,
@@ -11,7 +12,3 @@ const store = configureStore({
 setupListeners(store.dispatch);
 
 export default store;
-
-export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;

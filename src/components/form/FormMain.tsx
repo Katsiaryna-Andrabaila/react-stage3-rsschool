@@ -2,7 +2,7 @@ import { FORM_PAGE_TITLES, MESSAGE_DELAY, NEW_CARD_MESSAGE } from '../../constan
 import React from 'react';
 import Form from './Form';
 import FormCards from './FormCards';
-import { showMessage } from '../../redux/reducers';
+import { showMessage } from '../../redux/reducers/formReducer';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const FormMain = () => {

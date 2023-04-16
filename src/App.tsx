@@ -5,7 +5,7 @@ import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import { useAppSelector } from './redux/hooks';
-import { useGetItemsQuery } from './redux/reducers';
+import { useGetItemsQuery } from './redux/reducers/api';
 
 const App = () => {
   const { search } = useAppSelector((state) => state.main);

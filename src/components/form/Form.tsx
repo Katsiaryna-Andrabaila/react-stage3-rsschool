@@ -9,7 +9,7 @@ import FileInput from './inputs/FileInput';
 import CheckboxInputs from './inputs/CheckboxInputs';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../redux/hooks';
-import { addCard, showMessage } from '../../redux/reducers';
+import { addCard, showMessage } from '../../redux/reducers/formReducer';
 
 const Form = () => {
   const {

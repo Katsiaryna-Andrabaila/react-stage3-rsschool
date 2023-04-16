@@ -1,5 +1,5 @@
 import React from 'react';
-import { setIsPortalOpen } from '../../redux/reducers';
+import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import { useAppDispatch } from '../../redux/hooks';
 
 const Shadow = () => {

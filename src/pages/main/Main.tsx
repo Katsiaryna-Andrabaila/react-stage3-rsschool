@@ -10,8 +10,8 @@ import Portal from '../../components/card/Portal';
 import Shadow from '../../components/card/Shadow';
 import { NO_DATA } from '../../constants/constants';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
-import { useSearchItemsQuery } from '../../redux/reducers';
-import { setItemToOpen } from '../../redux/reducers';
+import { useSearchItemsQuery } from '../../redux/reducers/api';
+import { setItemToOpen } from '../../redux/reducers/mainReducer';
 
 const Main = (props: { defaultCards: Item[] | undefined }) => {
   const { defaultCards } = props;
