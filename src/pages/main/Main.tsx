@@ -14,6 +14,7 @@ import { useSearchItemsQuery } from '../../redux/reducers';
 import { setItemToOpen } from '../../redux/reducers';
 
 const Main = (props: { defaultCards: Item[] | undefined }) => {
+  const { defaultCards } = props;
   const { search, isPortalOpen, itemId } = useAppSelector((state) => state.main);
   const dispatch = useAppDispatch();
 
@@ -31,8 +32,8 @@ const Main = (props: { defaultCards: Item[] | undefined }) => {
         {isFetching ? (
           <Skeleton className="skeleton_cards" count={5} data-testid="test-skeleton_cards" />
         ) : !searchCards ? (
-          props.defaultCards &&
-          props.defaultCards.map((el: Item) => {
+          defaultCards &&
+          defaultCards.map((el: Item) => {
             return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
           })
         ) : !searchCards.length ? (

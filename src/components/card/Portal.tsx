@@ -5,7 +5,8 @@ import Skeleton from 'react-loading-skeleton';
 import { useAppDispatch } from '../../redux/hooks';
 
 const Portal = (props: { id: number }) => {
-  const { data: item, isFetching } = useGetItemByIdQuery(props.id);
+  const { id } = props;
+  const { data: item, isFetching } = useGetItemByIdQuery(id);
   const dispatch = useAppDispatch();
 
   const handleClick = () => {

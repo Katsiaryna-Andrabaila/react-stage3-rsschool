@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   const valueRef = useRef<string>(search);
 
-  const [value, setStateValue] = useState<string>('');
+  const [value, setStateValue] = useState('');
 
   const { handleSubmit } = useForm({ mode: 'onSubmit' });
 

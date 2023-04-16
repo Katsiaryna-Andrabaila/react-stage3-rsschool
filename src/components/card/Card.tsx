@@ -11,12 +11,12 @@ type Props = {
   openPortal: (id: number) => void;
 };
 
-const Card = (props: Props) => {
-  const { title, thumbnail, id } = props.card;
+const Card = ({ card, openPortal }: Props) => {
+  const { title, thumbnail, id } = card;
   const dispatch = useAppDispatch();
 
   const handleClick = async () => {
-    props.openPortal(id);
+    openPortal(id);
     dispatch(setIsPortalOpen({ isPortalOpen: true }));
   };
 
