@@ -7,14 +7,18 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Form from './Form';
 import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 describe('Form', () => {
   describe('when typing name in wrong format', () => {
     test('should show error under the name input', async () => {
       render(
-        <MemoryRouter>
-          <Form />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <Form />
+          </MemoryRouter>
+        </Provider>
       );
 
       const name = '123';

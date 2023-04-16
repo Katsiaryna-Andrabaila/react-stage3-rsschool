@@ -35,7 +35,7 @@ const Main = (props: { defaultCards: Item[] | undefined }) => {
           props.defaultCards.map((el: Item) => {
             return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
           })
-        ) : !searchCards?.length ? (
+        ) : !searchCards.length ? (
           <h4 className="no-data">{NO_DATA}</h4>
         ) : (
           searchCards.map((el: FoundItem) => {

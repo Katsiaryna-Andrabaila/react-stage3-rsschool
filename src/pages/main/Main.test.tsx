@@ -8,6 +8,8 @@ import { jest } from '@jest/globals';
 import React from 'react';
 import Main from './Main';
 import { Item } from '../../types/types';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 describe('Main', () => {
   test('should display loader before loading data', async () => {
@@ -20,7 +22,11 @@ describe('Main', () => {
       Promise.resolve({ json: () => Promise.resolve(cards) })
     ) as jest.Mock<() => Promise<Response>>;
 
-    render(<Main defaultCards={cards} />);
+    render(
+      <Provider store={store}>
+        <Main defaultCards={cards} />
+      </Provider>
+    );
     waitFor(() => expect(screen.getByTestId('test-skeleton_cards')).toBeInTheDocument());
   });
 });
