@@ -9,7 +9,7 @@ const Shadow = () => {
     dispatch(setIsPortalOpen({ isPortalOpen: false }));
   };
 
-  return <div className="shadow" onClick={handleClick}></div>;
+  return <div className="shadow" onClick={handleClick} data-testid="test-shadow"></div>;
 };
 
 export default Shadow;

@@ -16,7 +16,7 @@ const Portal = (props: { id: number }) => {
     <Skeleton className="skeleton_portal" count={5} data-testid="test-skeleton_portal" />
   ) : item ? (
     <div className="portal">
-      <div className="close-portal" onClick={handleClick}></div>
+      <div className="close-portal" onClick={handleClick} data-testid="test-close-portal"></div>
       <h2>{item.title}</h2>
       <img
         src={

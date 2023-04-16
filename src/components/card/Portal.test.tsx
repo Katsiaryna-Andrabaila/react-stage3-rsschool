@@ -4,20 +4,16 @@
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import Card from './Card';
 import { Item } from '../../types/types';
 import userEvent from '@testing-library/user-event';
 import { jest } from '@jest/globals';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
+import Portal from './Portal';
 
-describe('Card', () => {
-  test('should open Portal and Shadow after clicking', () => {
+describe('Portal', () => {
+  test('should close after clicking on close sign', () => {
     const card: Item = { id: 1, title: 'Winter' };
-
-    const mockOpenPortal = (itemId: number) => {
-      card.id = itemId;
-    };
 
     global.fetch = jest.fn(() =>
       Promise.resolve({ json: () => Promise.resolve(card) })
@@ -25,12 +21,13 @@ describe('Card', () => {
 
     render(
       <Provider store={store}>
-        <Card card={card} openPortal={mockOpenPortal} />
+        <Portal id={card.id} />
       </Provider>
     );
 
-    userEvent.click(screen.getByTestId('test-card'));
-
-    waitFor(() => expect(screen.getByTestId('test-portal')).toBeInTheDocument());
+    waitFor(() => {
+      userEvent.click(screen.getByTestId('test-close-portal'));
+      expect(screen.getByTestId('test-portal')).not.toBeInTheDocument();
+    });
   });
 });
