@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -10,6 +10,8 @@ const SearchBar = () => {
 
   const valueRef = useRef<string>(search);
 
+  const [value, setStateValue] = useState<string>('');
+
   const { handleSubmit } = useForm({ mode: 'onSubmit' });
 
   useEffect(() => {
@@ -18,22 +20,22 @@ const SearchBar = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(setValue({ search: valueRef.current }));
+      setStateValue(valueRef.current);
     };
-  }, [dispatch]);
+  }, []);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setValue({ search: event.target.value }));
+    setStateValue(event.target.value);
   };
 
   const onSubmit = () => {
-    dispatch(setValue({ search: valueRef.current }));
+    dispatch(setValue({ search: value }));
   };
 
   return (
     <div className="search-wrapper">
       <form className="form-component_search" onSubmit={handleSubmit(onSubmit)}>
-        <input type="search" className="search-bar" value={search} onChange={handleChange} />
+        <input type="search" className="search-bar" value={value} onChange={handleChange} />
       </form>
     </div>
   );
