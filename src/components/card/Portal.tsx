@@ -1,20 +1,22 @@
 import React from 'react';
 import { DEFAULT_IMG, PORTAL_ERROR } from '../../constants/constants';
-import { useGetItemByIdQuery } from '../../redux/reducers/api';
+import { fetchItemById } from '../../redux/reducers/api';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import Skeleton from 'react-loading-skeleton';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const Portal = (props: { id: number }) => {
   const { id } = props;
-  const { data: item, isFetching } = useGetItemByIdQuery(id);
+
   const dispatch = useAppDispatch();
+  dispatch(fetchItemById(id));
+  const { item, isLoading } = useAppSelector((state) => state.main);
 
   const handleClick = () => {
     dispatch(setIsPortalOpen({ isPortalOpen: false }));
   };
 
-  return isFetching ? (
+  return isLoading ? (
     <Skeleton className="skeleton_portal" count={5} data-testid="test-skeleton_portal" />
   ) : item ? (
     <div className="portal">

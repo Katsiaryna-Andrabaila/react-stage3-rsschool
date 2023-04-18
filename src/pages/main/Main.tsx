@@ -10,15 +10,18 @@ import Portal from '../../components/card/Portal';
 import Shadow from '../../components/card/Shadow';
 import { NO_DATA } from '../../constants/constants';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
-import { useSearchItemsQuery } from '../../redux/reducers/api';
+import { fetchSearchItems } from '../../redux/reducers/api';
 import { setItemToOpen } from '../../redux/reducers/mainReducer';
 
 const Main = (props: { defaultCards: Item[] | undefined }) => {
   const { defaultCards } = props;
-  const { search, isPortalOpen, itemId } = useAppSelector((state) => state.main);
+  const { search } = useAppSelector((state) => state.main);
   const dispatch = useAppDispatch();
+  search && dispatch(fetchSearchItems(search));
 
-  const { data: searchCards, isFetching } = useSearchItemsQuery(search);
+  //const { data: searchCards, isFetching } = useSearchItemsQuery(search);
+
+  const { isPortalOpen, itemId, isLoading, foundItems } = useAppSelector((state) => state.main);
 
   const openPortal = (id: number) => {
     dispatch(setItemToOpen({ itemId: id }));
@@ -29,17 +32,17 @@ const Main = (props: { defaultCards: Item[] | undefined }) => {
       <SearchBar />
 
       <section className="cards">
-        {isFetching ? (
+        {isLoading ? (
           <Skeleton className="skeleton_cards" count={5} data-testid="test-skeleton_cards" />
-        ) : !searchCards ? (
+        ) : !foundItems ? (
           defaultCards &&
           defaultCards.map((el: Item) => {
             return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
           })
-        ) : !searchCards.length ? (
+        ) : !foundItems.length ? (
           <h4 className="no-data">{NO_DATA}</h4>
         ) : (
-          searchCards.map((el: FoundItem) => {
+          foundItems.map((el: FoundItem) => {
             return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
           })
         )}
