@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DEFAULT_IMG, PORTAL_ERROR } from '../../constants/constants';
 import { fetchItemById } from '../../redux/reducers/api';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
@@ -9,14 +9,18 @@ const Portal = (props: { id: number }) => {
   const { id } = props;
 
   const dispatch = useAppDispatch();
-  dispatch(fetchItemById(id));
-  const { item, isLoading } = useAppSelector((state) => state.main);
+
+  useEffect(() => {
+    dispatch(fetchItemById(id));
+  }, [dispatch, id]);
+
+  const { item, isLoadingPortal } = useAppSelector((state) => state.main);
 
   const handleClick = () => {
     dispatch(setIsPortalOpen({ isPortalOpen: false }));
   };
 
-  return isLoading ? (
+  return isLoadingPortal ? (
     <Skeleton className="skeleton_portal" count={5} data-testid="test-skeleton_portal" />
   ) : item ? (
     <div className="portal">

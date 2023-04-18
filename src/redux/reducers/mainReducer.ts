@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { MainInitialState } from '../types';
 import { fetchItemById, fetchItems, fetchSearchItems } from './api';
-import { FoundItem, Item } from '../../types/types';
 
 const mainInitialState: MainInitialState = {
   search: '',
@@ -10,8 +9,8 @@ const mainInitialState: MainInitialState = {
   item: undefined,
   defaultItems: undefined,
   foundItems: undefined,
-  error: '',
   isLoading: false,
+  isLoadingPortal: false,
 };
 
 const mainReducer = createSlice({
@@ -33,53 +32,38 @@ const mainReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchItems.pending.type, (state) => {
+      .addCase(fetchItems.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchItems.fulfilled.type, (state, action: PayloadAction<{ data: Item[] }>) => {
-        const { data } = action.payload;
-
+      .addCase(fetchItems.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = '';
-        state.defaultItems = data;
+        state.defaultItems = action.payload;
       })
-      .addCase(fetchItems.rejected.type, (state, action: PayloadAction<string>) => {
+      .addCase(fetchItems.rejected, (state) => {
         state.isLoading = false;
-        state.error = action.payload;
       })
 
-      .addCase(fetchSearchItems.pending.type, (state) => {
+      .addCase(fetchSearchItems.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(
-        fetchSearchItems.fulfilled.type,
-        (state, action: PayloadAction<{ data: FoundItem[] }>) => {
-          const { data } = action.payload;
-
-          state.isLoading = false;
-          state.error = '';
-          state.foundItems = data;
-        }
-      )
-      .addCase(fetchSearchItems.rejected.type, (state, action: PayloadAction<string>) => {
+      .addCase(fetchSearchItems.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.foundItems = action.payload;
+      })
+      .addCase(fetchSearchItems.rejected, (state) => {
+        state.isLoading = false;
       })
 
-      .addCase(fetchItemById.pending.type, (state) => {
-        state.isLoading = true;
+      .addCase(fetchItemById.pending, (state) => {
+        state.isLoadingPortal = true;
       })
-      .addCase(fetchItemById.fulfilled.type, (state, action: PayloadAction<{ data: Item }>) => {
-        const { data } = action.payload;
-
-        state.isLoading = false;
-        state.error = '';
-        state.itemId = data.id;
-        state.item = data;
+      .addCase(fetchItemById.fulfilled, (state, action) => {
+        state.isLoadingPortal = false;
+        state.itemId = action.payload.id;
+        state.item = action.payload;
       })
-      .addCase(fetchItemById.rejected.type, (state, action: PayloadAction<string>) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(fetchItemById.rejected, (state) => {
+        state.isLoadingPortal = false;
       });
   },
 });

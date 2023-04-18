@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -16,10 +16,11 @@ import { setItemToOpen } from '../../redux/reducers/mainReducer';
 const Main = (props: { defaultCards: Item[] | undefined }) => {
   const { defaultCards } = props;
   const { search } = useAppSelector((state) => state.main);
-  const dispatch = useAppDispatch();
-  search && dispatch(fetchSearchItems(search));
 
-  //const { data: searchCards, isFetching } = useSearchItemsQuery(search);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchSearchItems(search));
+  }, [search, dispatch]);
 
   const { isPortalOpen, itemId, isLoading, foundItems } = useAppSelector((state) => state.main);
 

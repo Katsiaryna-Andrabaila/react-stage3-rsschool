@@ -27,6 +27,6 @@ export type MainInitialState = {
   item: Item | undefined;
   defaultItems: Item[] | undefined;
   foundItems: FoundItem[] | undefined;
-  error: string;
   isLoading: boolean;
+  isLoadingPortal: boolean;
 };
