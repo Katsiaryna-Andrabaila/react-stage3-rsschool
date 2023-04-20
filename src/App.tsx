@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Main from './pages/main/Main';
@@ -7,7 +7,7 @@ import Footer from './components/footer/Footer';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { fetchItems } from './redux/reducers/api';
 
-const App = () => {
+const App = (): JSX.Element | null => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,7 +16,11 @@ const App = () => {
 
   const { defaultItems } = useAppSelector((state) => state.main);
 
-  return (
+  const [isRendered, setIsRendered] = useState(false);
+
+  useEffect(() => setIsRendered(true), []);
+
+  return !isRendered ? null : (
     <div className="App">
       <Header page="main" />
       <Main defaultCards={defaultItems} />

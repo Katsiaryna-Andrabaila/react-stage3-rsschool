@@ -1,9 +1,15 @@
 {
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "experimentalSpecifierResolution": "node",
+    "esModuleInterop": true
+  },
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "esnext", "dom.iterable"],
-    "jsx": "react",
-    "module": "esnext",
+    "jsx": "react-jsx",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
@@ -14,7 +20,8 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "resolveJsonModule": true,
+    "noEmit": true,
     "allowJs": true
   },
-  "include": ["src", "./setupTest.ts"]
+  "include": ["src", "./setupTest.ts", "src/server.ts"]
 }

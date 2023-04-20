@@ -59,7 +59,6 @@ const mainReducer = createSlice({
       })
       .addCase(fetchItemById.fulfilled, (state, action) => {
         state.isLoadingPortal = false;
-        state.itemId = action.payload.id;
         state.item = action.payload;
       })
       .addCase(fetchItemById.rejected, (state) => {
