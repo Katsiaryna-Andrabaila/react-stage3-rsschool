@@ -1,7 +1,4 @@
-import React from 'react';
-import 'react-loading-skeleton/dist/skeleton.css';
 import { Item } from '../../types/types';
-import './Card.css';
 import { DEFAULT_IMG } from '../../constants/constants';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import { useAppDispatch } from '../../redux/hooks';

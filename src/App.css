@@ -1,43 +1,53 @@
-.App {
+.header {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 
-  min-height: 100vh;
+  width: 100%;
+  height: 5vh;
+
+  background-color: #dcdcdccf;
+  padding: 0 5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-title {
+  margin: 0;
+
+  color: #ff4700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-link {
+  margin-left: 2rem;
+
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.footer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 0 0 auto;
+
+  width: 100%;
+  height: 5vh;
+
+  background-color: #dcdcdccf;
+  padding: 0 5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.github-link {
+  padding-left: 2%;
+
+  background: url('assets/github.png') no-repeat left center;
+  background-size: 10%;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5e5d5d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rss-link {
+  width: 5%;
 }

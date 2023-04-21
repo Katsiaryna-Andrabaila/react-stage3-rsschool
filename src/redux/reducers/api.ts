@@ -1,6 +1,7 @@
 import { FoundItem, Item } from '../../types/types';
 import { URL } from '../../constants/constants';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import * as pkg from '@reduxjs/toolkit';
+const { createAsyncThunk } = pkg;
 
 export const fetchItems = createAsyncThunk<Item[]>('fetchItems', async () => {
   const response = await fetch(`${URL}?page=1&limit=100`);

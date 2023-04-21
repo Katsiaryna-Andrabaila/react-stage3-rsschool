@@ -1,6 +1,8 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { MainInitialState } from '../types';
 import { fetchItemById, fetchItems, fetchSearchItems } from './api';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import * as pkg from '@reduxjs/toolkit';
+const { createSlice } = pkg;
 
 const mainInitialState: MainInitialState = {
   search: '',

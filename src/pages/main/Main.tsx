@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import './Main.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import Card from '../../components/card/Card';
 import { FoundItem, Item } from '../../types/types';
@@ -12,8 +10,8 @@ import { NO_DATA } from '../../constants/constants';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { fetchSearchItems } from '../../redux/reducers/api';
 import { setItemToOpen } from '../../redux/reducers/mainReducer';
-import Header from 'components/header/Header';
-import Footer from 'components/footer/Footer';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
 const Main = (props: { defaultCards: Item[] | undefined }) => {
   const { defaultCards } = props;

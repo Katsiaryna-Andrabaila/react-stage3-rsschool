@@ -1,5 +1,3 @@
-import React from 'react';
-import './Header.css';
 import Nav from './Nav';
 import Title from './Title';
 

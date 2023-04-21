@@ -10,6 +10,7 @@ import Main from './Main';
 import { Item } from '../../types/types';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Main', () => {
   test('should display loader before loading data', async () => {
@@ -24,7 +25,9 @@ describe('Main', () => {
 
     render(
       <Provider store={store}>
-        <Main defaultCards={cards} />
+        <MemoryRouter>
+          <Main defaultCards={cards} />
+        </MemoryRouter>
       </Provider>
     );
     waitFor(() => expect(screen.getByTestId('test-skeleton_cards')).toBeInTheDocument());

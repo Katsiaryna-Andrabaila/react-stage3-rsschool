@@ -1,6 +1,4 @@
 import { GITHUB_NAME, YEAR_OF_CREATION } from '../../constants/constants';
-import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { DEFAULT_IMG, PORTAL_ERROR } from '../../constants/constants';
 import { fetchItemById } from '../../redux/reducers/api';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';

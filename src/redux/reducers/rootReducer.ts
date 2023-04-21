@@ -1,6 +1,7 @@
-import { combineReducers } from '@reduxjs/toolkit';
 import mainReducer from './mainReducer';
 import formReducer from './formReducer';
+import * as pkg from '@reduxjs/toolkit';
+const { combineReducers } = pkg;
 
 const rootReducer = combineReducers({
   main: mainReducer.reducer,
