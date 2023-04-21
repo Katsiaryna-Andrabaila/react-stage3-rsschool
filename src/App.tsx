@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Main from './pages/main/Main';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { fetchItems } from './redux/reducers/api';
+import { MemoryRouter, Navigate, Route, Routes } from 'react-router-dom';
+import NotFound from 'pages/404/404';
+import About from 'pages/about/About';
+import FormPage from 'pages/form/FormPage';
 
 const App = (): JSX.Element | null => {
   const dispatch = useAppDispatch();
@@ -21,11 +23,15 @@ const App = (): JSX.Element | null => {
   useEffect(() => setIsRendered(true), []);
 
   return !isRendered ? null : (
-    <div className="App">
-      <Header page="main" />
-      <Main defaultCards={defaultItems} />
-      <Footer />
-    </div>
+    <MemoryRouter>
+      <Routes>
+        <Route path="/" element={<Main defaultCards={defaultItems} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/form" element={<FormPage />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to={'/404'} replace />} />
+      </Routes>
+    </MemoryRouter>
   );
 };
 

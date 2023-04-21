@@ -108,7 +108,9 @@
     "coveragePathIgnorePatterns": [
       "src/reportWebVitals.ts",
       "src/setupTests.ts",
-      "react-app-env.d.ts"
+      "react-app-env.d.ts",
+      "<rootDir>/node_modules/",
+      "<rootDir>/cypress/"
     ]
   },
   "globals": {
