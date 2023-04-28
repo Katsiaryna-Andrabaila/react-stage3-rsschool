@@ -16,7 +16,6 @@
     "react-loading-skeleton": "^3.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "web-vitals": "^2.1.4"
@@ -39,6 +38,7 @@
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-transform-assets": "^1.0.2",
     "babel-preset-es2015": "^6.24.1",
@@ -64,7 +64,10 @@
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.3.3",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "husky": {
     "hooks": {
@@ -72,14 +75,14 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
     "test": "jest --watchAll --coverage",
-    "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx --ext .ts",
     "format": "prettier --write .",
     "server": "ts-node --esm server/index.tsx",
-    "server:prod": "react-scripts build && ts-node --esm server/index.tsx"
+    "server:prod": "tsc && vite build && ts-node --esm server/index.tsx"
   },
   "eslintConfig": {
     "extends": [
