@@ -23,5 +23,6 @@
     "noEmit": true,
     "allowJs": true
   },
-  "include": ["src", "./setupTest.ts", "src/server.ts"]
+  "include": ["src", "server", "./setupTest.ts"],
+  "exclude": ["cypress"]
 }
