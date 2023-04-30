@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-//const { createServer } = await import('vite');
+
 const router = await createServer({
   server: { middlewareMode: true },
   appType: 'custom',
@@ -41,13 +41,6 @@ app.use('*', async (req, res) => {
       res.end();
     },
   });
-  //res.send(stream);
 });
-
-//return res.send(html.replace('<div id="root"></div>', `<div id="root">${stream}</div>`));
-
-//router.use(express.static(path.resolve(__dirname)));
-
-//app.use(express.static(path.resolve(__dirname)));
 
 app.listen(3000, () => console.log('Express server is running on localhost:3000'));
