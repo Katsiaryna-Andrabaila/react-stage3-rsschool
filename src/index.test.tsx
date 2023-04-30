@@ -1,7 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { routes } from './utils/routes';

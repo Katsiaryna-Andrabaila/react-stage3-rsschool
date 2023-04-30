@@ -3,13 +3,14 @@
  */
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import React from 'react';
 import { Item } from '../../types/types';
 import userEvent from '@testing-library/user-event';
 import { jest } from '@jest/globals';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
-import Portal from './Portal';
+import { Portal } from './Portal';
+import setupStore from '../../redux/store';
+
+const store = setupStore();
 
 describe('Portal', () => {
   test('should close after clicking on close sign', () => {

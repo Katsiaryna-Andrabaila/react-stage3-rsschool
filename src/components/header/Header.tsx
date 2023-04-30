@@ -1,7 +1,7 @@
-import Nav from './Nav';
-import Title from './Title';
+import { Nav } from './Nav';
+import { Title } from './Title';
 
-const Header = (props: { page: string }) => {
+export const Header = (props: { page: string }) => {
   return (
     <header className="header" data-testid={props.page}>
       <Title page={props.page} />
@@ -9,5 +9,3 @@ const Header = (props: { page: string }) => {
     </header>
   );
 };
-
-export default Header;

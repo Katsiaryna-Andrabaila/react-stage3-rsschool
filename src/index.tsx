@@ -2,14 +2,16 @@ import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux';
-import store from './redux/store';
-import App from './App';
+import { App } from './App';
 import './App.css';
 import './pages/main/Main.css';
 import './pages/404/404.css';
 import './pages/about/About.css';
 import './pages/form/Form.css';
 import { BrowserRouter } from 'react-router-dom';
+import setupStore from './redux/store';
+
+const store = setupStore();
 
 hydrateRoot(
   document.getElementById('root') as HTMLElement,

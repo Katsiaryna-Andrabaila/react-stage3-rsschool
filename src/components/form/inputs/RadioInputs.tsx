@@ -9,7 +9,7 @@ type Props = {
   genderError: string | undefined;
 };
 
-const RadioInputs = ({ register, gender, genderError }: Props) => {
+export const RadioInputs = ({ register, gender, genderError }: Props) => {
   return (
     <div className="input-wrapper">
       <div className="input-label">
@@ -38,5 +38,3 @@ const RadioInputs = ({ register, gender, genderError }: Props) => {
     </div>
   );
 };
-
-export default RadioInputs;

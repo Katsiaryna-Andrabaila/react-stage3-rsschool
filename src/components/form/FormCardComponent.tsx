@@ -1,7 +1,6 @@
-import React from 'react';
 import { FormCard } from '../../types/types';
 
-const FormCardComponent = (props: FormCard) => {
+export const FormCardComponent = (props: FormCard) => {
   const { name, picture, gender, birth, hair, feed } = props;
   return (
     <div className="form-card">
@@ -14,5 +13,3 @@ const FormCardComponent = (props: FormCard) => {
     </div>
   );
 };
-
-export default FormCardComponent;

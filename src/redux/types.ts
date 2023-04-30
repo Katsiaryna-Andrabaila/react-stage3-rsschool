@@ -1,5 +1,7 @@
 import { FormCard, FoundItem, Item } from 'types/types';
-import store from './store';
+import setupStore from './store';
+
+const store = setupStore();
 
 export type RootState = ReturnType<typeof store.getState>;
 
@@ -24,9 +26,4 @@ export type MainInitialState = {
   search: string;
   isPortalOpen: boolean;
   itemId: number;
-  item: Item | undefined;
-  defaultItems: Item[] | undefined;
-  foundItems: FoundItem[] | undefined;
-  isLoading: boolean;
-  isLoadingPortal: boolean;
 };

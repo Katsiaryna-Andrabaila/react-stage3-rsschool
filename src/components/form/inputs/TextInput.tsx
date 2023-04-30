@@ -9,7 +9,7 @@ type Props = {
   nameError: string | undefined;
 };
 
-const TextInput = ({ register, name, nameError }: Props) => {
+export const TextInput = ({ register, name, nameError }: Props) => {
   return (
     <div className="input-wrapper">
       <label className="label">
@@ -28,5 +28,3 @@ const TextInput = ({ register, name, nameError }: Props) => {
     </div>
   );
 };
-
-export default TextInput;

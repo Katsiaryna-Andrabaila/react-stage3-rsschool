@@ -3,13 +3,14 @@
  */
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import React from 'react';
-import Card from './Card';
+import { Card } from './Card';
 import { Item } from '../../types/types';
 import userEvent from '@testing-library/user-event';
 import { jest } from '@jest/globals';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
+import setupStore from '../../redux/store';
+
+const store = setupStore();
 
 describe('Card', () => {
   test('should open Portal and Shadow after clicking', () => {

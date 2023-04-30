@@ -1,6 +1,6 @@
 import { GITHUB_NAME, YEAR_OF_CREATION } from '../../constants/constants';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer">
       <a
@@ -18,5 +18,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

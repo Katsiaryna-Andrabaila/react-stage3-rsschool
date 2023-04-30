@@ -10,7 +10,7 @@ type Props = {
   birthError: string | undefined;
 };
 
-const DateInput = ({ register, birth, birthError }: Props) => {
+export const DateInput = ({ register, birth, birthError }: Props) => {
   return (
     <div className="input-wrapper">
       <label className="label">
@@ -28,5 +28,3 @@ const DateInput = ({ register, birth, birthError }: Props) => {
     </div>
   );
 };
-
-export default DateInput;

@@ -1,7 +1,7 @@
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import { Header } from '../../components/header/Header';
+import { Footer } from '../../components/footer/Footer';
 
-const NotFound = () => {
+export const NotFound = () => {
   return (
     <div className="not-found">
       <Header page="not-found" />
@@ -10,5 +10,3 @@ const NotFound = () => {
     </div>
   );
 };
-
-export default NotFound;

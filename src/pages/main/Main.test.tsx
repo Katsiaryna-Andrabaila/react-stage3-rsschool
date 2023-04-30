@@ -5,12 +5,13 @@
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import { jest } from '@jest/globals';
-import React from 'react';
-import Main from './Main';
+import { Main } from './Main';
 import { Item } from '../../types/types';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
 import { MemoryRouter } from 'react-router-dom';
+import setupStore from '../../redux/store';
+
+const store = setupStore();
 
 describe('Main', () => {
   test('should display loader before loading data', async () => {

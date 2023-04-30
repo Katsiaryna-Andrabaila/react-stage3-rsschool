@@ -1,7 +1,7 @@
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import { Header } from '../../components/header/Header';
+import { Footer } from '../../components/footer/Footer';
 
-const About = () => {
+export const About = () => {
   return (
     <div className="about">
       <Header page="about" />
@@ -10,5 +10,3 @@ const About = () => {
     </div>
   );
 };
-
-export default About;

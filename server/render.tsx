@@ -1,25 +1,37 @@
-import { ReactNode } from 'react';
+import { renderToPipeableStream } from 'react-dom/server';
+import { App } from '../src/App';
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router-dom/server';
+import Html from './Html';
+import type { Response } from 'express';
+import setupStore from '../src/redux/store';
+import { URL } from '../src/constants/constants';
+import { Item } from '../src/types/types';
+import api, { useGetItemsQuery } from '../src/redux/reducers/api';
+import { StrictMode } from 'react';
 
-const Html = ({ children }: { children: ReactNode }, preloadedState = { search: '' }) => {
-  return (
-    <html>
-      <head>
-        <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="Web site created using create-react-app" />
-        <link href="/static/css/main.69c8976c.css" rel="stylesheet" />
-        <title>React app</title>
-      </head>
-      <body>
-        <div id="root">${children}</div>
-        <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-        </script>
-      </body>
-    </html>
-  );
+export const render = async (path: string, options: object) => {
+  /* const data = await fetch(URL);
+  const startItems: Item[] = (await data.json()).data; */
+
+  const store = setupStore();
+
+  await store.dispatch(api.endpoints.getItems.initiate(''));
+  await Promise.all(store.dispatch(api.util.getRunningQueriesThunk()));
+
+  const preloadedState = store.getState();
+
+  return [
+    renderToPipeableStream(
+      //<Html preloadedState={preloadedState}>
+      <Provider store={store}>
+        <StaticRouter location={path}>
+          <App />
+        </StaticRouter>
+      </Provider>,
+      //</Html>,
+      options
+    ),
+    preloadedState,
+  ];
 };
-
-export default Html;

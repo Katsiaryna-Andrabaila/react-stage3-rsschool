@@ -1,5 +1,4 @@
 import { MainInitialState } from '../types';
-import { fetchItemById, fetchItems, fetchSearchItems } from './api';
 import type { PayloadAction } from '@reduxjs/toolkit';
 //import { createSlice } from '@reduxjs/toolkit';
 import * as toolkitRaw from '@reduxjs/toolkit';
@@ -10,11 +9,6 @@ const mainInitialState: MainInitialState = {
   search: '',
   isPortalOpen: false,
   itemId: 0,
-  item: undefined,
-  defaultItems: undefined,
-  foundItems: undefined,
-  isLoading: false,
-  isLoadingPortal: false,
 };
 
 const mainReducer = createSlice({
@@ -33,41 +27,6 @@ const mainReducer = createSlice({
       const { itemId } = action.payload;
       state.itemId = itemId;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchItems.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchItems.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.defaultItems = action.payload;
-      })
-      .addCase(fetchItems.rejected, (state) => {
-        state.isLoading = false;
-      })
-
-      .addCase(fetchSearchItems.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchSearchItems.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.foundItems = action.payload;
-      })
-      .addCase(fetchSearchItems.rejected, (state) => {
-        state.isLoading = false;
-      })
-
-      .addCase(fetchItemById.pending, (state) => {
-        state.isLoadingPortal = true;
-      })
-      .addCase(fetchItemById.fulfilled, (state, action) => {
-        state.isLoadingPortal = false;
-        state.item = action.payload;
-      })
-      .addCase(fetchItemById.rejected, (state) => {
-        state.isLoadingPortal = false;
-      });
   },
 });
 

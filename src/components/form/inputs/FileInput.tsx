@@ -10,7 +10,7 @@ type Props = {
   pictureError: string | undefined;
 };
 
-const FileInput = ({ register, picture, pictureError }: Props) => {
+export const FileInput = ({ register, picture, pictureError }: Props) => {
   return (
     <div className="input-wrapper">
       <label className="label">
@@ -28,5 +28,3 @@ const FileInput = ({ register, picture, pictureError }: Props) => {
     </div>
   );
 };
-
-export default FileInput;
