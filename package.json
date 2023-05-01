@@ -89,7 +89,7 @@
     "format": "prettier --write .",
     "server": "ts-node --esm server.tsx",
     "test:clean": "npx rimraf coverage && npx rimraf .nyc_output",
-    "test:e2e": "npm run test:clean && npx nyc cypress run --browser chrome && npx nyc report --reporter=text-summary",
+    "test:e2e": "npm run test:clean && npx cypress run --e2e && npx nyc report --reporter=text-summary",
     "e2e:coverage": "start-server-and-test server http://localhost:3000 test:e2e"
   },
   "eslintConfig": {
