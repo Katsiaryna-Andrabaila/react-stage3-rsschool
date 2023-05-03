@@ -47,7 +47,15 @@ describe('validatePicture', () => {
   describe('when file extension is correct', () => {
     test('should return true', () => {
       const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' });
-      const result = validatePicture(file);
+      const list: FileList = {
+        0: file,
+        length: 1,
+        item: () => file,
+        [Symbol.iterator]: function (): IterableIterator<File> {
+          throw new Error('Function not implemented.');
+        },
+      };
+      const result = validatePicture(list);
 
       expect(result).toEqual(true);
     });
@@ -56,7 +64,15 @@ describe('validatePicture', () => {
   describe('when file extension is incorrect', () => {
     test('should return false', () => {
       const file = new File(['test'], 'test.pdf', { type: 'image/pdf' });
-      const result = validatePicture(file);
+      const list: FileList = {
+        0: file,
+        length: 1,
+        item: () => file,
+        [Symbol.iterator]: function (): IterableIterator<File> {
+          throw new Error('Function not implemented.');
+        },
+      };
+      const result = validatePicture(list);
 
       expect(result).toEqual(false);
     });
