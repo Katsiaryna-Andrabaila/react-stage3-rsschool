@@ -1,34 +1,32 @@
-import { CARD_INFO, SPACE, SPACE_REPEATING } from '../../constants/constants';
-import React from 'react';
-import { TCard } from '../../types/types';
+import React, { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { FoundItem, Item } from '../../types/types';
 import './Card.css';
+import { getItemById } from '../../api/getItemById';
+import { DEFAULT_IMG } from '../../constants/constants';
 
-const Card = (props: TCard) => {
-  const { title, thumbnail, description, weigth, height, life, country, breedingTime } = props;
-  return (
-    <div className="card" data-testid="test-card">
+const Card = (props: { card: FoundItem | Item; openPortal: (item: Item) => void }) => {
+  const { title, thumbnail, id } = props.card;
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleClick = async () => {
+    setIsLoading(true);
+
+    const item = await getItemById(id);
+    props.openPortal(item);
+
+    setIsLoading(false);
+  };
+
+  return isLoading ? (
+    <Skeleton className="skeleton_portal" count={5} />
+  ) : (
+    <div className="card" data-testid="test-card" onClick={handleClick}>
+      <img src={thumbnail?.lqip || DEFAULT_IMG} className="card-image" alt={thumbnail?.alt_text} />
+
       <h2 className="card-header">{title}</h2>
-      <img src={thumbnail} className="card-image" alt="dog photo" />
-      <h4>{description}</h4>
-      <p>
-        {CARD_INFO.weight}
-        {weigth}
-        {SPACE.repeat(SPACE_REPEATING)}
-        {CARD_INFO.height}
-        {height}
-      </p>
-      <p>
-        {CARD_INFO.life}
-        {life}
-      </p>
-      <p>
-        {CARD_INFO.country}
-        {country}
-      </p>
-      <p>
-        {CARD_INFO.time}
-        {breedingTime}
-      </p>
     </div>
   );
 };

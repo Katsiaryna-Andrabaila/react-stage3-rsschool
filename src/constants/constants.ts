@@ -18,9 +18,6 @@ export const CARD_INFO = {
   time: 'Breed appearance time: ',
 };
 
-export const SPACE = '\u00A0';
-export const SPACE_REPEATING = 5;
-
 export const GITHUB_NAME = 'katsiaryna-andrabaila';
 
 export const YEAR_OF_CREATION = 2023;
@@ -56,3 +53,12 @@ export const FORM_ERRORS = {
 
 export const NEW_CARD_MESSAGE = 'New card created!';
 export const MESSAGE_DELAY = 2500;
+
+export const URL = 'https://api.artic.edu/api/v1/artworks';
+
+export const DEFAULT_IMG =
+  'https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found.jpg';
+
+export const MAX_ITEMS_PER_PAGE = 24;
+
+export const NO_DATA = 'No data found for your request. Please try another query';

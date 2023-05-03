@@ -1,34 +1,38 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import './search.css';
+import { useForm } from 'react-hook-form';
 
-const SearchBar = () => {
+const SearchBar = (props: { searchCards: (value: string) => void }) => {
   const [value, setValue] = useState(localStorage.getItem('search-key987') || '');
   const valueRef = useRef<string>(value);
+
+  const { handleSubmit } = useForm({ mode: 'onSubmit' });
 
   useEffect(() => {
     valueRef.current = value;
   }, [value]);
 
   useEffect(() => {
-    const savedValue = localStorage.getItem('search-key987');
-    savedValue && setValue(savedValue);
     return () => {
       localStorage.setItem('search-key987', valueRef.current || '');
+      window.addEventListener('beforeunload', () => setValue(value));
     };
-  }, []);
+  }, [value]);
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-  }
+  };
+
+  const onSubmit = () => {
+    setValue(valueRef.current);
+    props.searchCards(value);
+  };
 
   return (
     <div className="search-wrapper">
-      <input
-        type="search"
-        className="search-bar"
-        value={value}
-        onChange={(event) => handleChange(event)}
-      />
+      <form className="form-component_search" onSubmit={handleSubmit(onSubmit)}>
+        <input type="search" className="search-bar" value={value} onChange={handleChange} />
+      </form>
     </div>
   );
 };
