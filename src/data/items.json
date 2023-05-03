@@ -1,0 +1,103 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Beagle",
+      "description": "An excellent hunting dog and loyal companion",
+      "country": "Great Britain",
+      "weigth": "9-12 kg",
+      "height": "33-41 cm",
+      "life": "12-15 years",
+      "breedingTime": "mid-nineteenth century",
+      "thumbnail": "https://cdn-ghckb.nitrocdn.com/ywsRCaHzPZOrRGmIQthcAKzblzYFHUKW/assets/images/optimized/rev-c49501e/wp-content/uploads/2020/02/beagle-puppy-running-through-a-yard-with-a-ball-in-his-mouth.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Labrador Retriever",
+      "description": "A friendly, outgoing, and high-spirited companion",
+      "country": "Canada",
+      "weigth": "25-36 kg",
+      "height": "54-57 cm",
+      "life": "11-13 years",
+      "breedingTime": "mid-nineteenth century",
+      "thumbnail": "https://cdn.shopify.com/s/files/1/0175/1403/7302/articles/Blog_Photo_Feb_16_Lab_Article_800x.png?v=1613492250"
+    },
+    {
+      "id": 3,
+      "title": "German Shepherd",
+      "description": "An intelligent, loyal, confident, courageous and capable working dog",
+      "country": "Germany",
+      "weigth": "23-40 kg",
+      "height": "55-65 cm",
+      "life": "9-13 years",
+      "breedingTime": "late-nineteenth century",
+      "thumbnail": "https://i.shgcdn.com/1433c815-1d41-446e-b20c-35cfa2ac2517/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+    },
+    {
+      "id": 4,
+      "title": "Bernese Mountain Dog",
+      "description": "A good-natured, balanced, playful, sociable and positive companion",
+      "country": "Switzerland",
+      "weigth": "36-70 kg",
+      "height": "58-71 cm",
+      "life": "7-10 years",
+      "breedingTime": "early-twenteenth century",
+      "thumbnail": "https://media-be.chewy.com/wp-content/uploads/2021/05/17084547/Bernese-Mountain-Dog-FeaturedImage.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Pembroke Welsh Corgi",
+      "description": "A friendly, cheerful, excitable and active, easy to train, intelligent companion",
+      "country": "Great Britain",
+      "weigth": "11-14 kg",
+      "height": "25-30 cm",
+      "life": "12-15 years",
+      "breedingTime": "tenth century",
+      "thumbnail": "https://petkeen.com/wp-content/uploads/2022/03/pembroke-welsh-corgi-out-in-the-fields.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Saint Bernard",
+      "description": "A slow, calm, even-tempered, friendly, quick-witted and excellent companion",
+      "country": "Italy and Switzerland",
+      "weigth": "54-82 kg",
+      "height": "65-90 cm",
+      "life": "8-10 years",
+      "breedingTime": "seventeenth century",
+      "thumbnail": "https://cdn.britannica.com/66/235666-050-751046D6/Saint-bernard-dog-st-bernard-standing-snow.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Newfoundland dog",
+      "description": "A calm, balanced, not shy, good nanny and companion, devoid of aggression towards people",
+      "country": "Canada",
+      "weigth": "55-80 kg",
+      "height": "66-71 cm",
+      "life": "8-10 years",
+      "breedingTime": "eighteenth century",
+      "thumbnail": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F06%2F02%2Fnewfoundland-black-standing-grass-249332530-2000.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Shetland Sheepdog",
+      "description": "A smart, playful, loyal, easy to train companion",
+      "country": "Great Britain",
+      "weigth": "7-11 kg",
+      "height": "33-41 cm",
+      "life": "12-18 years",
+      "breedingTime": "fifteenth-nineteenth century",
+      "thumbnail": "https://media-be.chewy.com/wp-content/uploads/2021/07/07132006/ShetlandSheepdog-FeaturedImage.jpg"
+    },
+    {
+      "id": 9,
+      "title": "American Cocker Spaniel",
+      "description": "An eager playmate for children and easily trained as a companion and athlete",
+      "country": "USA",
+      "weigth": "7-14 kg",
+      "height": "34-40 cm",
+      "life": "13-14 years",
+      "breedingTime": "late-nineteenth century",
+      "thumbnail": "https://lapkins.ru/upload/uf/980/980b2bb654233d66de36d8fbd9a61ca0.jpg"
+    }
+  ]
+}
