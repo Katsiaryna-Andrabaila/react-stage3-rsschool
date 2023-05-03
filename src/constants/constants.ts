@@ -6,6 +6,7 @@ export const LINK_COLORS = {
 export const LINK_TITLES = {
   home: 'Home',
   about: 'About us',
+  form: 'Form',
 };
 
 export const CARD_INFO = {
@@ -21,3 +22,37 @@ export const SPACE = '\u00A0';
 export const SPACE_REPEATING = 5;
 
 export const GITHUB_NAME = 'katsiaryna-andrabaila';
+
+export const YEAR_OF_CREATION = 2023;
+
+export const FORM_PAGE_TITLES = {
+  addPuppy: 'Add your pet!',
+  puppiesList: 'Your pets',
+  petName: 'Pet name',
+  birthDate: 'Date of birth',
+  hairLength: 'Hair length',
+  long: 'long',
+  middle: 'middle',
+  short: 'short',
+  hairless: 'hairless',
+  gender: 'Gender',
+  male: 'male',
+  female: 'female',
+  picture: "Your pet's picture",
+  feed: 'Feed',
+  dry: 'dry feed',
+  natural: 'natural feed',
+  submitBtn: 'Add',
+};
+
+export const FORM_ERRORS = {
+  nameError: 'Name required! It must contain only letters and be at least 3 characters long',
+  birthError: 'Date of birth required! It must be less than or equal to today',
+  hairError: 'Hair length required!',
+  genderError: 'Gender required!',
+  pictureError: 'Picture required! File extension must be .jpg, .jpeg, .png or .gif',
+  feedError: 'Type of feed required!',
+};
+
+export const NEW_CARD_MESSAGE = 'New card created!';
+export const MESSAGE_DELAY = 2500;

@@ -7,6 +7,8 @@ export default class Title extends React.Component<{ page: string }> {
         return 'Home';
       case 'about':
         return 'About us';
+      case 'form':
+        return 'Form';
       default:
         return '404';
     }

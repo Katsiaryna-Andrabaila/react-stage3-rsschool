@@ -6,6 +6,14 @@
   border-radius: 0.5rem;
   padding: 2rem;
   background-color: #dcdcdccf;
+
+  font-size: 1.4rem;
+  color: #120a8f;
+  text-align: center;
+}
+
+.card-header {
+  font-size: 2rem;
 }
 
 .card-image {

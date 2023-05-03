@@ -4,17 +4,17 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import NotFound from './404';
+import FormMain from './FormMain';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('404 page', () => {
-  test('should contain the title in the header', () => {
+describe('Form main', () => {
+  test('should contain the title on the page', () => {
     render(
       <MemoryRouter>
-        <NotFound />
+        <FormMain />
       </MemoryRouter>
     );
 
-    expect(screen.getByTestId('not-found')).toBeInTheDocument();
+    expect(screen.getByText(/your pets/i)).toBeInTheDocument();
   });
 });

@@ -38,17 +38,22 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest-location-mock": "^1.0.9",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "ts-jest": "^29.0.5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll --coverage --collectCoverageFrom=src/**/**/*.tsx",
+    "test": "jest --watchAll --coverage --collectCoverageFrom=src/**/**/*.{ts,tsx}",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx --ext .ts",
     "format": "prettier --write ."
