@@ -7,20 +7,18 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Form from './Form';
 import { MemoryRouter } from 'react-router-dom';
-import { FormCard } from '../../types/types';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 describe('Form', () => {
   describe('when typing name in wrong format', () => {
     test('should show error under the name input', async () => {
       render(
-        <MemoryRouter>
-          <Form
-            addFormCard={(card: FormCard, showMessage: boolean) => ({
-              formCards: [card],
-              showMessage,
-            })}
-          />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <Form />
+          </MemoryRouter>
+        </Provider>
       );
 
       const name = '123';

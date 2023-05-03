@@ -7,15 +7,16 @@ import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import SearchBar from './SearchBar';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 describe('App', () => {
   test('should contain the mock value in the search bar after page reload', async () => {
-    const test: string[] = [];
-    const mockSearchCards = (searchValue: string) => {
-      test.push(searchValue);
-    };
-
-    render(<SearchBar searchCards={mockSearchCards} />);
+    render(
+      <Provider store={store}>
+        <SearchBar />
+      </Provider>
+    );
 
     const input = screen.getByRole('searchbox');
     const value = 'test';

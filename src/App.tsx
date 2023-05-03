@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Main from './pages/main/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import { Item } from './types/types';
-import { getItems } from './api/getItems';
-import { searchItems } from './api/searchItems';
+import { useAppSelector } from './redux/hooks';
+import { useGetItemsQuery } from './redux/reducers/api';
 
 const App = () => {
-  const [cards, setCards] = useState<Item[]>([]);
-
-  useEffect(() => {
-    const setDefaultCards = async () => {
-      const searchValue = localStorage.getItem('search-key987');
-      const resultCards = searchValue ? await searchItems(searchValue) : await getItems();
-      setCards(resultCards);
-    };
-
-    setDefaultCards();
-  }, []);
+  const { search } = useAppSelector((state) => state.main);
+  const { data: defaultCards } = useGetItemsQuery(search);
 
   return (
     <div className="App">
       <Header page="main" />
-      <Main defaultCards={cards} />
+      <Main defaultCards={defaultCards} />
       <Footer />
     </div>
   );

@@ -30,7 +30,7 @@ export type FormCard = {
   birth: string;
   hair: string;
   gender: string;
-  picture: File;
+  picture: string;
   feed: string[];
 };
 
@@ -77,4 +77,23 @@ export type Item = {
   copyright_notice?: string;
   gallery_title?: string;
   medium_display?: string;
+};
+
+export type CardsInitialState = {
+  value: string;
+  cards: FoundItem[] | Item[] | null;
+  isPortalOpen: boolean;
+  item: Item;
+  isLoading: boolean;
+};
+
+export type FormInitialState = {
+  formCards: FormCard[];
+  isMessage: boolean;
+};
+
+export type MainInitialState = {
+  search: string;
+  isPortalOpen: boolean;
+  itemId: number;
 };

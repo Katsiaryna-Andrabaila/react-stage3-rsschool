@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -9,69 +9,47 @@ import { FoundItem, Item } from '../../types/types';
 import Portal from '../../components/card/Portal';
 import Shadow from '../../components/card/Shadow';
 import { NO_DATA } from '../../constants/constants';
-import { searchItems } from '../../api/searchItems';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { useSearchItemsQuery } from '../../redux/reducers/api';
+import { setItemToOpen } from '../../redux/reducers/mainReducer';
 
-const Main = (props: { defaultCards: Item[] }) => {
-  const [value, setValue] = useState<string>('');
-  const [cards, setCards] = useState<FoundItem[] | null>([]);
-  const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
-  const [item, setItem] = useState<Item>({ id: 0, title: '' });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+const Main = (props: { defaultCards: Item[] | undefined }) => {
+  const { defaultCards } = props;
+  const { search, isPortalOpen, itemId } = useAppSelector((state) => state.main);
+  const dispatch = useAppDispatch();
 
-  const searchCards = async (searchValue: string) => {
-    setValue(searchValue);
-  };
+  const { data: searchCards, isFetching } = useSearchItemsQuery(search);
 
-  useEffect(() => {
-    const setData = async () => {
-      setIsLoading(true);
-
-      if (value) {
-        const searchCards = await searchItems(value);
-        searchCards && searchCards.length ? setCards(await searchCards) : setCards(null);
-      }
-
-      setIsLoading(false);
-    };
-    setData();
-  }, [value]);
-
-  const openPortal = (item: Item) => {
-    setItem(item);
-    setIsPortalOpen(true);
-  };
-
-  const closePortal = () => {
-    setIsPortalOpen(false);
+  const openPortal = (id: number) => {
+    dispatch(setItemToOpen({ itemId: id }));
   };
 
   return (
     <main className="main">
-      <SearchBar searchCards={searchCards} />
+      <SearchBar />
 
-      {!cards ? (
-        <h4 className="no-data">{NO_DATA}</h4>
-      ) : (
-        <section className="cards">
-          {isLoading ? (
-            <Skeleton className="skeleton_cards" count={5} data-testid="test-skeleton_cards" />
-          ) : !cards.length ? (
-            props.defaultCards.map((el: Item) => {
-              return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
-            })
-          ) : (
-            cards.map((el: FoundItem) => {
-              return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
-            })
-          )}
-        </section>
-      )}
+      <section className="cards">
+        {isFetching ? (
+          <Skeleton className="skeleton_cards" count={5} data-testid="test-skeleton_cards" />
+        ) : !searchCards ? (
+          defaultCards &&
+          defaultCards.map((el: Item) => {
+            return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
+          })
+        ) : !searchCards.length ? (
+          <h4 className="no-data">{NO_DATA}</h4>
+        ) : (
+          searchCards.map((el: FoundItem) => {
+            return <Card key={el.id} card={el} openPortal={openPortal} data-testid="test-card" />;
+          })
+        )}
+      </section>
 
       {isPortalOpen &&
         createPortal(
           <>
-            <Portal item={item} closePortal={closePortal} data-testid="test-portal" />
-            <Shadow closePortal={closePortal} />
+            <Portal id={itemId} data-testid="test-portal" />
+            <Shadow />
           </>,
           document.body
         )}

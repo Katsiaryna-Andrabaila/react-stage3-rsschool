@@ -1,46 +1,44 @@
 import React from 'react';
-import { Item } from '../../types/types';
-import { DEFAULT_IMG } from '../../constants/constants';
+import { DEFAULT_IMG, PORTAL_ERROR } from '../../constants/constants';
+import { useGetItemByIdQuery } from '../../redux/reducers/api';
+import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
+import Skeleton from 'react-loading-skeleton';
+import { useAppDispatch } from '../../redux/hooks';
 
-const Portal = (props: { item: Item; closePortal: () => void }) => {
-  const {
-    title,
-    thumbnail,
-    image_id,
-    date_display,
-    date_end,
-    artist_display,
-    credit_line,
-    copyright_notice,
-    gallery_title,
-    medium_display,
-  } = props.item;
+const Portal = (props: { id: number }) => {
+  const { id } = props;
+  const { data: item, isFetching } = useGetItemByIdQuery(id);
+  const dispatch = useAppDispatch();
 
   const handleClick = () => {
-    props.closePortal();
+    dispatch(setIsPortalOpen({ isPortalOpen: false }));
   };
 
-  return (
+  return isFetching ? (
+    <Skeleton className="skeleton_portal" count={5} data-testid="test-skeleton_portal" />
+  ) : item ? (
     <div className="portal">
-      <div className="close-portal" onClick={handleClick}></div>
-      <h2>{title}</h2>
+      <div className="close-portal" onClick={handleClick} data-testid="test-close-portal"></div>
+      <h2>{item.title}</h2>
       <img
         src={
-          image_id
-            ? `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`
+          item.image_id
+            ? `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`
             : DEFAULT_IMG
         }
         className="portal-image"
-        alt={thumbnail?.alt_text}
+        alt={item.thumbnail?.alt_text}
       />
-      <p>Date of display: {date_display}</p>
-      <p>End date: {date_end}</p>
-      <p>Artist display: {artist_display}</p>
-      <p>Credit line: {credit_line}</p>
-      {copyright_notice && <p>Copyright notice: {copyright_notice}</p>}
-      {gallery_title && <p>Gallery: {gallery_title}</p>}
-      <p>Medium display: {medium_display}</p>
+      <p>Date of display: {item.date_display}</p>
+      <p>End date: {item.date_end}</p>
+      <p>Artist display: {item.artist_display}</p>
+      <p>Credit line: {item.credit_line}</p>
+      {item.copyright_notice && <p>Copyright notice: {item.copyright_notice}</p>}
+      {item.gallery_title && <p>Gallery: {item.gallery_title}</p>}
+      <p>Medium display: {item.medium_display}</p>
     </div>
+  ) : (
+    <div className="portal">{PORTAL_ERROR}</div>
   );
 };
 
