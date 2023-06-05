@@ -4,11 +4,12 @@
 import '@testing-library/jest-dom';
 import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
-import Form from './Form';
+import { Form } from './Form';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
+import setupStore from '../../redux/store';
+
+const store = setupStore();
 
 describe('Form', () => {
   describe('when typing name in wrong format', () => {

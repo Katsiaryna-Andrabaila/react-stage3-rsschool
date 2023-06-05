@@ -9,7 +9,7 @@ type Props = {
   feedError: string | undefined;
 };
 
-const CheckboxInputs = ({ register, feed, feedError }: Props) => {
+export const CheckboxInputs = ({ register, feed, feedError }: Props) => {
   return (
     <div className="input-wrapper">
       <div className="input-label">
@@ -40,5 +40,3 @@ const CheckboxInputs = ({ register, feed, feedError }: Props) => {
     </div>
   );
 };
-
-export default CheckboxInputs;

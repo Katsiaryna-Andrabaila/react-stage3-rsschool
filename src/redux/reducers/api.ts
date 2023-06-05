@@ -1,6 +1,21 @@
 import { FoundItem, Item } from '../../types/types';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { URL } from '../../constants/constants';
+//import { createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  buildCreateApi,
+  coreModule,
+  reactHooksModule,
+  fetchBaseQuery,
+} from '@reduxjs/toolkit/query/react';
+/* import * as toolkitRaw from '@reduxjs/toolkit';
+const { createApi } = ((toolkitRaw as TypeToolkitRaw).default ??
+  toolkitRaw) as typeof toolkitRaw;
+type TypeToolkitRaw = typeof toolkitRaw & { default?: unknown }; */
+
+const createApi = buildCreateApi(
+  coreModule(),
+  reactHooksModule({ unstable__sideEffectsInRender: true })
+);
 
 const api = createApi({
   reducerPath: 'api',

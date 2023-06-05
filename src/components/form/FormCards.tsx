@@ -1,8 +1,7 @@
-import React from 'react';
 import { FormCard } from '../../types/types';
-import FormCardComponent from './FormCardComponent';
+import { FormCardComponent } from './FormCardComponent';
 
-const FormCards = (props: { formCards: FormCard[] }) => {
+export const FormCards = (props: { formCards: FormCard[] }) => {
   return (
     <section className="form-cards">
       {props.formCards.map((item) => {
@@ -11,5 +10,3 @@ const FormCards = (props: { formCards: FormCard[] }) => {
     </section>
   );
 };
-
-export default FormCards;

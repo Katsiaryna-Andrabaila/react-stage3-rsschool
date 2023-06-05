@@ -1,11 +1,10 @@
 import { FORM_PAGE_TITLES, MESSAGE_DELAY, NEW_CARD_MESSAGE } from '../../constants/constants';
-import React from 'react';
-import Form from './Form';
-import FormCards from './FormCards';
+import { Form } from './Form';
+import { FormCards } from './FormCards';
 import { showMessage } from '../../redux/reducers/formReducer';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
-const FormMain = () => {
+export const FormMain = () => {
   const dispatch = useAppDispatch();
   const { formCards, isMessage } = useAppSelector((state) => state.form);
 
@@ -28,5 +27,3 @@ const FormMain = () => {
     </main>
   );
 };
-
-export default FormMain;

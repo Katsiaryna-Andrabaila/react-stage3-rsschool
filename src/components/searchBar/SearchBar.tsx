@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import './search.css';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setValue } from '../../redux/reducers/mainReducer';
 
-const SearchBar = () => {
+export const SearchBar = () => {
   const dispatch = useAppDispatch();
   const { search } = useAppSelector((state) => state.main);
 
@@ -40,5 +39,3 @@ const SearchBar = () => {
     </div>
   );
 };
-
-export default SearchBar;

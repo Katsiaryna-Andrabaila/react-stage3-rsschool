@@ -1,5 +1,10 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { FormCard, FormInitialState } from '../../types/types';
+import { FormCard } from '../../types/types';
+import { FormInitialState } from '../types';
+import type { PayloadAction } from '@reduxjs/toolkit';
+//import { createSlice } from '@reduxjs/toolkit';
+import * as toolkitRaw from '@reduxjs/toolkit';
+const { createSlice } = ((toolkitRaw as TypeToolkitRaw).default ?? toolkitRaw) as typeof toolkitRaw;
+type TypeToolkitRaw = typeof toolkitRaw & { default?: unknown };
 
 const formInitialState: FormInitialState = {
   formCards: [],

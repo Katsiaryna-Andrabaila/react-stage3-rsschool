@@ -2,7 +2,7 @@ import React from 'react';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import { useAppDispatch } from '../../redux/hooks';
 
-const Shadow = () => {
+export const Shadow = () => {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
@@ -11,5 +11,3 @@ const Shadow = () => {
 
   return <div className="shadow" onClick={handleClick} data-testid="test-shadow"></div>;
 };
-
-export default Shadow;

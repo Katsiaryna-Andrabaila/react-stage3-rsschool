@@ -2,39 +2,52 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@babel/plugin-syntax-flow": "^7.18.6",
     "@babel/preset-flow": "^7.18.6",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@reduxjs/toolkit": "^1.9.3",
     "babel-jest": "^29.5.0",
+    "express": "^4.18.2",
     "history": "^5.3.0",
+    "nyc": "^15.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-loading-skeleton": "^3.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "typescript": "^4.9.5",
+    "vite-plugin-istanbul": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
     "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.0",
+    "@babel/register": "^7.21.0",
+    "@cypress/code-coverage": "^3.10.4",
     "@redux-devtools/core": "^3.13.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.0.0-beta",
+    "@types/cypress__code-coverage": "^3.10.0",
+    "@types/express": "^4.17.17",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.14",
+    "@types/node": "^16.18.23",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^10.0.1",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -44,14 +57,23 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
+    "ignore-styles": "^5.0.1",
     "jest-environment-jsdom": "^29.5.0",
     "jest-fetch-mock": "^3.0.3",
     "jest-location-mock": "^1.0.9",
     "jsdom": "^21.1.1",
     "lint-staged": "^12.4.1",
     "msw": "^1.2.1",
+    "nodemon": "^2.0.22",
     "prettier": "^2.6.2",
-    "ts-jest": "^29.0.5"
+    "start-server-and-test": "^2.0.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.3.3",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "husky": {
     "hooks": {
@@ -59,12 +81,16 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
     "test": "jest --watchAll --coverage",
-    "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "server": "ts-node --esm server.tsx",
+    "test:clean": "npx rimraf coverage && npx rimraf .nyc_output",
+    "test:e2e": "npm run test:clean && npx cypress run --e2e && npx nyc report --reporter=text-summary",
+    "e2e:coverage": "start-server-and-test server http://localhost:3000 test:e2e"
   },
   "eslintConfig": {
     "extends": [
@@ -97,7 +123,9 @@
     "coveragePathIgnorePatterns": [
       "src/reportWebVitals.ts",
       "src/setupTests.ts",
-      "react-app-env.d.ts"
+      "react-app-env.d.ts",
+      "<rootDir>/node_modules/",
+      "<rootDir>/cypress/"
     ]
   },
   "globals": {

@@ -9,7 +9,7 @@ type Props = {
   hairError: string | undefined;
 };
 
-const SelectInput = ({ register, hair, hairError }: Props) => {
+export const SelectInput = ({ register, hair, hairError }: Props) => {
   return (
     <div className="input-wrapper">
       <label className="label">
@@ -31,5 +31,3 @@ const SelectInput = ({ register, hair, hairError }: Props) => {
     </div>
   );
 };
-
-export default SelectInput;

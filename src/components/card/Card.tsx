@@ -1,7 +1,4 @@
-import React from 'react';
-import 'react-loading-skeleton/dist/skeleton.css';
 import { Item } from '../../types/types';
-import './Card.css';
 import { DEFAULT_IMG } from '../../constants/constants';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import { useAppDispatch } from '../../redux/hooks';
@@ -11,7 +8,7 @@ type Props = {
   openPortal: (id: number) => void;
 };
 
-const Card = ({ card, openPortal }: Props) => {
+export const Card = ({ card, openPortal }: Props) => {
   const { title, thumbnail, id } = card;
   const dispatch = useAppDispatch();
 
@@ -27,5 +24,3 @@ const Card = ({ card, openPortal }: Props) => {
     </div>
   );
 };
-
-export default Card;

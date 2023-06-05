@@ -1,5 +1,9 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { MainInitialState } from '../../types/types';
+import { MainInitialState } from '../types';
+import type { PayloadAction } from '@reduxjs/toolkit';
+//import { createSlice } from '@reduxjs/toolkit';
+import * as toolkitRaw from '@reduxjs/toolkit';
+const { createSlice } = ((toolkitRaw as TypeToolkitRaw).default ?? toolkitRaw) as typeof toolkitRaw;
+type TypeToolkitRaw = typeof toolkitRaw & { default?: unknown };
 
 const mainInitialState: MainInitialState = {
   search: '',

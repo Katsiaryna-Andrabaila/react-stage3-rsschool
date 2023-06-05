@@ -1,9 +1,8 @@
-import React from 'react';
-import App from '../App';
+import { App } from '../App';
 import { Navigate } from 'react-router-dom';
-import About from '../pages/about/About';
-import NotFound from '../pages/404/404';
-import FormPage from '../pages/form/FormPage';
+import { About } from '../pages/about/About';
+import { NotFound } from '../pages/404/404';
+import { FormPage } from '../pages/form/FormPage';
 
 export const routes = [
   {

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { LINK_COLORS, LINK_TITLES } from '../../constants/constants';
 
-const Nav = () => {
+export const Nav = () => {
   const setActive = ({ isActive }: { isActive: boolean }) => ({
     color: isActive ? LINK_COLORS.active : LINK_COLORS.base,
   });
@@ -21,5 +21,3 @@ const Nav = () => {
     </nav>
   );
 };
-
-export default Nav;

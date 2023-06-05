@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Title = (props: { page: string }) => {
+export const Title = (props: { page: string }) => {
   const getTitle = (page: string) => {
     switch (page) {
       case 'main':
@@ -16,5 +16,3 @@ const Title = (props: { page: string }) => {
 
   return <h1 className="header-title">Current page: {getTitle(props.page)}</h1>;
 };
-
-export default Title;

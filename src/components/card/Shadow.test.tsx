@@ -3,11 +3,12 @@
  */
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
-import Shadow from './Shadow';
+import { Shadow } from './Shadow';
+import setupStore from '../../redux/store';
+
+const store = setupStore();
 
 describe('Shadow', () => {
   test('should remove after clicking', () => {

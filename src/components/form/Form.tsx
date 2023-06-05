@@ -1,17 +1,17 @@
 import { FORM_PAGE_TITLES } from '../../constants/constants';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { FormCard, SubmitData } from '../../types/types';
-import TextInput from './inputs/TextInput';
-import DateInput from './inputs/DateInput';
-import SelectInput from './inputs/SelectInput';
-import RadioInputs from './inputs/RadioInputs';
-import FileInput from './inputs/FileInput';
-import CheckboxInputs from './inputs/CheckboxInputs';
+import { TextInput } from './inputs/TextInput';
+import { DateInput } from './inputs/DateInput';
+import { SelectInput } from './inputs/SelectInput';
+import { RadioInputs } from './inputs/RadioInputs';
+import { FileInput } from './inputs/FileInput';
+import { CheckboxInputs } from './inputs/CheckboxInputs';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../redux/hooks';
 import { addCard, showMessage } from '../../redux/reducers/formReducer';
 
-const Form = () => {
+export const Form = () => {
   const {
     register,
     handleSubmit,
@@ -57,5 +57,3 @@ const Form = () => {
     </form>
   );
 };
-
-export default Form;

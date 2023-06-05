@@ -1,12 +1,12 @@
-import React from 'react';
 import { DEFAULT_IMG, PORTAL_ERROR } from '../../constants/constants';
-import { useGetItemByIdQuery } from '../../redux/reducers/api';
 import { setIsPortalOpen } from '../../redux/reducers/mainReducer';
 import Skeleton from 'react-loading-skeleton';
 import { useAppDispatch } from '../../redux/hooks';
+import { useGetItemByIdQuery } from '../../redux/reducers/api';
 
-const Portal = (props: { id: number }) => {
+export const Portal = (props: { id: number }) => {
   const { id } = props;
+
   const { data: item, isFetching } = useGetItemByIdQuery(id);
   const dispatch = useAppDispatch();
 
@@ -41,5 +41,3 @@ const Portal = (props: { id: number }) => {
     <div className="portal">{PORTAL_ERROR}</div>
   );
 };
-
-export default Portal;
